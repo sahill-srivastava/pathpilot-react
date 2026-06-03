@@ -1,6 +1,10 @@
-export default function Header () {
+import Navbar from "../ui/Navbar";
 
-    return (
-        <header>Header</header>
-    )
+
+export default function Header() {
+  return (
+    <header>
+         <Navbar />
+    </header>
+  );
 }
