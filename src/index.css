@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
-/* poppins */
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* inter */
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
 
-:root {
+@theme {
+
+    --font-poppins: "Poppins", sans-serif;
+    --font-inter: "Inter", sans-serif;
+
+    /* light theme */
     --primary-color: #2563EB;
     --secondary-color: #1E293B;
     --accent-color: #8B5CF6;
@@ -17,25 +19,38 @@
     --success-color: #22C55E;
     --warning-color: #F59E0B;
     --error-color: #EF4444;
+
+    /* dark */
+    --primary-color: #3B82F6;
+    --secondary-color: #CBD5E1;
+    --accent-color: #A78BFA;
+    --background-color: #020617;
+    --text-color: #F8FAFC;
+    --black-color: #000;
+    --white-color: #FFF;
+    --success-color: #4ADE80;
+    --warning-color: #FBBF24;
+    --error-color: #F87171;
+
+
+
 }
 
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
+@layer base {
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Poppins", sans-serif;
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-poppins);
+    }
 
-body {
-    font-family: "Inter", sans-serif;
-    font-size: 15px;
-    background: var(--background-color);
+    body {
+        font-family: var(--font-inter);
+        font-size: 15px;
+        /* background: var(--background-color); */
+    }
+
 }
