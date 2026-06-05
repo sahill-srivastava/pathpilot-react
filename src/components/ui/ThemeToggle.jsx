@@ -6,7 +6,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 export default function ThemeToggle() {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const icon = theme === "light" ? <Moon /> : <Sun />;
+  const icon = theme === "light" ? <Moon size={20} /> : <Sun size={20}/>;
 
 
   function handleTheme() {

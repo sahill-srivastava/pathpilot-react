@@ -4,7 +4,7 @@ import NavLink from "../ui/NavLink";
 import ThemeToggle from "../ui/ThemeToggle";
 import logo from "../../assets/logo.png";
 import logoDark from "../../assets/logo-dark.png";
-import { Bookmark, TrendingUp } from "lucide-react";
+import { Bookmark, TextAlignJustify, TrendingUp } from "lucide-react";
 
 import { useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <nav className=" shadow-[0_6px_8px_-2px_rgba(0,0,0,0.1) dark:shadow-[0_6px_8px_-2px_rgba(255,255,255,0.4)]">
-      <Container className="flex items-center justify-between ">
+      <Container className="w-screen flex items-center justify-between relative">
         <Link to="/">
           <img
             className="w-[200px]"
@@ -23,16 +23,22 @@ export default function Navbar() {
           />
         </Link>
 
-        <NavLink />
+        <div className="flex  md:hidden">
+          <TextAlignJustify size={20} />
+        </div>
 
-        <div className="flex gap-4">
-          <Link to="/bookmarks">
-            <Bookmark size={20} />
-          </Link>
-          <Link to="/progress-tracker">
-            <TrendingUp size={20} />
-          </Link>
-          <ThemeToggle />
+        <div className=" flex flex-col absolute z-10 top-full left-0 right-2.5  bg-white text-black px-4 py-2 rounded md:flex-row gap-4">
+          <NavLink />
+
+          <div className="flex gap-4">
+            <Link to="/bookmarks">
+              <Bookmark size={20} />
+            </Link>
+            <Link to="/progress-tracker">
+              <TrendingUp size={20} />
+            </Link>
+            <ThemeToggle />
+          </div>
         </div>
       </Container>
     </nav>
