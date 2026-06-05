@@ -8,7 +8,7 @@ import { Bookmark, TrendingUp } from "lucide-react";
 export default function Navbar() {
   return (
     <nav className="shadow-[0_6px_8px_-2px_rgba(0,0,0,0.1)]">
-      <Container className=" flex items-center justify-between ">
+      <Container className="flex items-center justify-between ">
         <Link to="/">
           <img className="w-[200px]" src={logo} alt="Pathpilot-logo" />
         </Link>
