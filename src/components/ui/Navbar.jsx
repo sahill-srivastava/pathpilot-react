@@ -13,8 +13,14 @@ export default function Navbar() {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <nav className=" shadow-[0_6px_8px_-2px_rgba(0,0,0,0.1) dark:shadow-[0_6px_8px_-2px_rgba(255,255,255,0.4)]">
-      <Container className="w-screen flex items-center justify-between relative">
+    <nav
+      className="
+      shadow-white/40
+      shadow-sm
+      light:shadow-black/10
+    "
+    >
+      <Container className="w-screen md:w-full flex items-center justify-between relative">
         <Link to="/">
           <img
             className="w-[200px]"
@@ -27,7 +33,20 @@ export default function Navbar() {
           <TextAlignJustify size={20} />
         </div>
 
-        <div className="flex flex-col absolute z-10 top-full left-0 right-0 mx-2 light:border light:border-slate-300 bg-white text-black rounded md:flex-row gap-4">
+        <div
+          className="
+        bg-white text-black  rounded mx-2
+
+        flex flex-col  gap-4
+        absolute z-10 top-full left-0 right-0
+  
+        light:text-black light:border light:border-slate-300
+        
+        md:w-2/3 md:relative 
+        md:flex-row md:justify-between  
+        md:bg-transparent  md:text-white md:border-none
+        "
+        >
           <NavLink />
 
           <div className="flex items-center gap-4 p-4">
