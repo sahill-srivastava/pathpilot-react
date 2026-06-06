@@ -23,7 +23,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="flex  md:hidden">
+        <div className="flex text-white md:hidden light:text-black">
           <TextAlignJustify size={20} />
         </div>
 

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
 
 
 @theme {
@@ -8,7 +8,19 @@
     --font-poppins: "Poppins", sans-serif;
     --font-inter: "Inter", sans-serif;
 
-    /* light theme */
+    /* default theme */
+    --primary-color: #F8FAFC;
+    --secondary-color: #3B82F6;
+    --accent-color: #8B5CF6;
+    --background-color: #020617;
+    --text-color: #F8FAFC;
+    --success-color: #4ADE80;
+    --warning-color: #FBBF24;
+    --error-color: #F87171;
+
+}
+
+.light {
     --primary-color: #2563EB;
     --secondary-color: #1E293B;
     --accent-color: #8B5CF6;
@@ -19,21 +31,6 @@
     --success-color: #22C55E;
     --warning-color: #F59E0B;
     --error-color: #EF4444;
-
-    /* dark */
-    --primary-color: #3B82F6;
-    --secondary-color: #CBD5E1;
-    --accent-color: #A78BFA;
-    --background-color: #020617;
-    --text-color: #F8FAFC;
-    --black-color: #000;
-    --white-color: #FFF;
-    --success-color: #4ADE80;
-    --warning-color: #FBBF24;
-    --error-color: #F87171;
-
-
-
 }
 
 @layer base {
@@ -50,7 +47,20 @@
     body {
         font-family: var(--font-inter);
         font-size: 15px;
-        /* background: var(--background-color); */
+        background: var(--background-color);
     }
 
 }
+
+
+/* light theme */
+/* --primary-color: #2563EB;
+    --secondary-color: #1E293B;
+    --accent-color: #8B5CF6;
+    --background-color: #F8FAFC;
+    --text-color: #0F172A;
+    --black-color: #000;
+    --white-color: #fff;
+    --success-color: #22C55E;
+    --warning-color: #F59E0B;
+    --error-color: #EF4444; */
