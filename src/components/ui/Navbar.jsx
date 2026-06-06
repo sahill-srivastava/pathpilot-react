@@ -27,10 +27,10 @@ export default function Navbar() {
           <TextAlignJustify size={20} />
         </div>
 
-        <div className=" flex flex-col absolute z-10 top-full left-0 right-2.5  bg-white text-black px-4 py-2 rounded md:flex-row gap-4">
+        <div className="flex flex-col absolute z-10 top-full left-0 right-0 mx-2 light:border light:border-slate-300 bg-white text-black rounded md:flex-row gap-4">
           <NavLink />
 
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4 p-4">
             <Link to="/bookmarks">
               <Bookmark size={20} />
             </Link>

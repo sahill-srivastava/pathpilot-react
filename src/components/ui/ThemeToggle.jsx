@@ -23,5 +23,5 @@ export default function ThemeToggle() {
     }
   }
 
-  return <button onClick={handleTheme}>{icon}</button>;
+  return <button onClick={handleTheme} className="cursor-pointer">{icon}</button>;
 }
