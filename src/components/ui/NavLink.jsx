@@ -2,12 +2,13 @@ import { Link } from "react-router-dom";
 
 export default function NavLink() {
   return (
-    <div className="w-fit flex flex-col items-start md:flex-row items-center ">
+    <div className="w-full md:w-fit flex flex-col items-start md:flex-row items-center ">
       <Link
         to="/about"
         className="
         w-full border-b-1 border-slate-200 px-4 py-3 cursor-pointer
         hover:bg-[var(--accent-color)] hover:text-white 
+        md:hover:text-[var(--accent-color)]
         md:border-none   
         md:hover:bg-transparent"
       >
@@ -18,6 +19,7 @@ export default function NavLink() {
          className="
         w-full border-b-1 border-slate-200 px-4 py-3 cursor-pointer
         hover:bg-[var(--accent-color)] hover:text-white 
+        md:hover:text-[var(--accent-color)]
         md:border-none   
         md:hover:bg-transparent"
       >
@@ -28,6 +30,7 @@ export default function NavLink() {
          className="
         w-full border-b-1 border-slate-200 px-4 py-3 cursor-pointer
         hover:bg-[var(--accent-color)] hover:text-white 
+        md:hover:text-[var(--accent-color)]
         md:border-none   
         md:hover:bg-transparent"
       >
@@ -38,6 +41,7 @@ export default function NavLink() {
          className="
         w-full border-b-1 border-slate-200 px-4 py-3 cursor-pointer
         hover:bg-[var(--accent-color)] hover:text-white 
+        md:hover:text-[var(--accent-color)]
         md:border-none   
         md:hover:bg-transparent"
       >
