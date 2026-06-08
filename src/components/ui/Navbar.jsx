@@ -3,7 +3,7 @@ import Container from "../layout/Container";
 import NavLink from "../ui/NavLink";
 import ThemeToggle from "../ui/ThemeToggle";
 import logo from "../../assets/logo.png";
-import logoDark from "../../assets/logo-dark.png";
+import logoLight from "../../assets/logo-light.png";
 import { Bookmark, TextAlignJustify, TrendingUp, X } from "lucide-react";
 
 import { useContext, useState } from "react";
@@ -39,7 +39,7 @@ export default function Navbar() {
         <Link to="/">
           <img
             className="w-[200px]"
-            src={theme === "light" ? logo : logoDark}
+            src={theme === "light" ? logo : logoLight}
             alt="Pathpilot-logo"
           />
         </Link>
