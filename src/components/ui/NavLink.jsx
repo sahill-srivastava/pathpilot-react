@@ -20,7 +20,7 @@ export default function NavLink({isOpenState}) {
         ${menuItemClasses}
         `}
         onClick={() => {
-          setIsOpen(!isOpen)
+          setIsOpen(false)
         }}
       >
         About
@@ -32,7 +32,7 @@ export default function NavLink({isOpenState}) {
         ${menuItemClasses}
         `}
          onClick={() => {
-          setIsOpen(!isOpen)
+          setIsOpen(false)
         }}
       >
         Careers
@@ -43,7 +43,7 @@ export default function NavLink({isOpenState}) {
         ${menuItemClasses}
         `}
          onClick={() => {
-          setIsOpen(!isOpen)
+          setIsOpen(false)
         }}
       >
         Roadmaps

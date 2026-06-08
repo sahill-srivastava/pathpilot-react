@@ -23,7 +23,7 @@ export default function Navbar() {
         light:text-black light:border light:border-slate-300
         
         md:w-2/3 md:relative 
-        md:flex-row md:justify-between  
+        md:flex md:flex-row md:justify-between  
         md:bg-transparent  md:text-white md:border-none
   `;
 
@@ -65,7 +65,7 @@ export default function Navbar() {
             <Link
               to="/bookmarks"
               onClick={() => {
-                setIsOpen(!isOpen);
+                setIsOpen(false);
               }}
             >
               <Bookmark size={20} />
@@ -73,7 +73,7 @@ export default function Navbar() {
             <Link
               to="/progress-tracker"
               onClick={() => {
-                setIsOpen(!isOpen);
+                setIsOpen(false);
               }}
             >
               <TrendingUp size={20} />
