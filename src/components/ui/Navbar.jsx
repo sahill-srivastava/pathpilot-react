@@ -34,9 +34,7 @@ export default function Navbar() {
     "
     >
       <Container className="w-screen md:w-full flex items-center justify-between relative">
-        <Link to="/">
          <Logo />
-        </Link>
 
         <div
           className="flex text-white md:hidden light:text-black"
