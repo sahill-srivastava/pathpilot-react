@@ -2,15 +2,13 @@ import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 import NavLink from "../ui/NavLink";
 import ThemeToggle from "../ui/ThemeToggle";
-import logo from "../../assets/logo.png";
-import logoLight from "../../assets/logo-light.png";
+import Logo from "./Logo";
+import { useState } from "react";
 import { Bookmark, TextAlignJustify, TrendingUp, X } from "lucide-react";
 
-import { useContext, useState } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+
 
 export default function Navbar() {
-  const { theme } = useContext(ThemeContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -37,11 +35,7 @@ export default function Navbar() {
     >
       <Container className="w-screen md:w-full flex items-center justify-between relative">
         <Link to="/">
-          <img
-            className="w-[200px]"
-            src={theme === "light" ? logo : logoLight}
-            alt="Pathpilot-logo"
-          />
+         <Logo />
         </Link>
 
         <div

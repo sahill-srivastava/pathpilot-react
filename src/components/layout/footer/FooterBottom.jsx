@@ -10,8 +10,8 @@ const FooterBottom = () => {
   return (
     <div
       className="
-    text-[14px] bg-amber-300
-    flex flex-col items-start
+    text-[14px] bg-purple-600
+    flex flex-col items-start gap-4
 
     md:flex-row md:justify-content
     "
@@ -23,7 +23,7 @@ const FooterBottom = () => {
         <span>PathPilot</span>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-4">
         <PrivacyPolicy />
         <TermsConditions />
       </div>

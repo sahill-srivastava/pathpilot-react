@@ -7,7 +7,7 @@ import Container from "../Container";
 export default function Footer() {
   return (
     <footer>
-      <Container>
+      <Container className="bg-red-600">
         <FooterTop />
         <FooterBottom />
       </Container>
