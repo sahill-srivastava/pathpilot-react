@@ -75,6 +75,13 @@
 
 }
 
+@layer components {
+
+    .link-hover {
+        @apply hover:text-[var(--accent-color)] 
+    }
+}
+
 
 /* light theme */
 /* --primary-color: #2563EB;

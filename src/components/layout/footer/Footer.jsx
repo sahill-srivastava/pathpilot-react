@@ -7,7 +7,7 @@ import Container from "../Container";
 export default function Footer() {
   return (
     <footer className="border-t border-white/20">
-      <Container className="bg-red-600">
+      <Container>
         <FooterTop />
         <FooterBottom />
       </Container>

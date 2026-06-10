@@ -6,7 +6,7 @@ export default function NavLink({isOpenState}) {
 
 
   const menuItemClasses = `
-     w-full border-b-1 border-slate-200 px-4 py-3 cursor-pointer
+     w-full border-b-1 border-slate-200 px-4 py-3
         hover:bg-[var(--accent-color)] hover:text-white 
         md:hover:text-[var(--accent-color)]
         md:border-none   

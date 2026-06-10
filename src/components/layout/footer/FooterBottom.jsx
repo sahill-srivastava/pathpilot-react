@@ -10,10 +10,10 @@ const FooterBottom = () => {
   return (
     <div
       className="
-    text-[14px] bg-purple-600
+    text-[14px] 
     flex flex-col items-start gap-4
-
-    md:flex-row md:items-center md:justify-between md:pt-2.5 md:pb-3.5
+    border-t border-white/20
+    md:flex-row md:items-center md:justify-between pt-6 pb-10
     "
     >
       <div className="flex gap-1 md:items-center">

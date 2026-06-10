@@ -1,7 +1,7 @@
 
 const Policy = () => {
   return (
-    <div>Privacy policy</div>
+    <div className="cursor-pointer">Privacy policy</div>
   )
 }
 
