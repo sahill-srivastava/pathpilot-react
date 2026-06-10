@@ -1,6 +1,12 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import Logo from "../../ui/Logo";
 import { Link } from "react-router-dom";
+import {
+  RiFacebookFill,
+  RiInstagramLine,
+  RiTwitterXLine,
+  RiYoutubeLine,
+} from "@remixicon/react";
 
 const FooterTop = () => {
   return (
@@ -62,7 +68,10 @@ const FooterTop = () => {
         <ul className="flex flex-col gap-4">
           <li className="flex gap-2 link-hover blank">
             <MapPin size={18} className="mt-1" />
-            <Link to="https://maps.app.goo.gl/Fx7cDyMmLVta7MxM7" target="_blank">
+            <Link
+              to="https://maps.app.goo.gl/Fx7cDyMmLVta7MxM7"
+              target="_blank"
+            >
               Gomtinagar, Lucknow, Uttar Pradesh, India
             </Link>
           </li>
@@ -75,6 +84,20 @@ const FooterTop = () => {
           <li className="flex gap-2 link-hover">
             <Phone size={18} className="mt-1" />
             <Link to="tel:+91 8601143080">+91 8601143080</Link>
+          </li>
+          <li className="mt-5 flex gap-4">
+            <Link to="#" className="link-hover hover:scale-125">
+              <RiFacebookFill size={20} />
+            </Link>
+            <Link to="#" className="link-hover hover:scale-125">
+              <RiInstagramLine size={20} />
+            </Link>
+            <Link to="#" className="link-hover hover:scale-125">
+              <RiTwitterXLine size={20} />
+            </Link>
+            <Link to="#" className="link-hover hover:scale-125">
+              <RiYoutubeLine size={20} />
+            </Link>
           </li>
         </ul>
       </div>
