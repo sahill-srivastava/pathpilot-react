@@ -3,7 +3,7 @@ import Container from "../layout/Container";
 import NavLink from "../ui/NavLink";
 import ThemeToggle from "../ui/ThemeToggle";
 import Logo from "./Logo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Bookmark, TextAlignJustify, TrendingUp, X } from "lucide-react";
 
 
@@ -11,6 +11,17 @@ import { Bookmark, TextAlignJustify, TrendingUp, X } from "lucide-react";
 export default function Navbar() {
 
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+
+    function handleClick() {
+      set
+    }
+
+
+    document.addEventListener("click", handleClick)
+
+  }, [])
 
   const menuContainerClasses = `
         bg-white text-black  rounded mx-2
