@@ -33,8 +33,8 @@ export default function Navbar() {
   
         light:text-black light:border light:border-slate-300
         
-        md:w-2/3 md:relative 
-        md:flex md:flex-row md:justify-between  
+        md:relative md:flex-1
+        md:flex md:flex-row md:items-center md:gap-46  md:justify-end  
         md:bg-transparent  md:text-white md:border-none
   `;
 
@@ -49,11 +49,11 @@ export default function Navbar() {
       <Container className="w-screen md:w-full flex items-center justify-between relative">
         <Logo />
 
-        <div ref={menuRef}>
+        <div ref={menuRef} className="flex-1 flex justify-end">
           <div
             className="flex text-white md:hidden light:text-black"
             onClick={() => {
-              setIsOpen(!isOpen);
+              setIsOpen(prev => !prev);
             }}
           >
             {isOpen ? <X size={20} /> : <TextAlignJustify size={20} />}
