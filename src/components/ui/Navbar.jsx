@@ -3,25 +3,27 @@ import Container from "../layout/Container";
 import NavLink from "../ui/NavLink";
 import ThemeToggle from "../ui/ThemeToggle";
 import Logo from "./Logo";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Bookmark, TextAlignJustify, TrendingUp, X } from "lucide-react";
 
-
-
 export default function Navbar() {
-
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
+  const menuRef = useRef(null);
 
-    function handleClick() {
-      set
+  useEffect(() => {
+    function handleClick(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
     }
 
+    document.addEventListener("mousedown", handleClick);
 
-    document.addEventListener("click", handleClick)
-
-  }, [])
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
 
   const menuContainerClasses = `
         bg-white text-black  rounded mx-2
@@ -45,43 +47,45 @@ export default function Navbar() {
     "
     >
       <Container className="w-screen md:w-full flex items-center justify-between relative">
-         <Logo />
+        <Logo />
 
-        <div
-          className="flex text-white md:hidden light:text-black"
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
-        >
-          {isOpen ? <X size={20} /> : <TextAlignJustify size={20} />}
-        </div>
+        <div ref={menuRef}>
+          <div
+            className="flex text-white md:hidden light:text-black"
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          >
+            {isOpen ? <X size={20} /> : <TextAlignJustify size={20} />}
+          </div>
 
-        <div
-          className={`
-        ${isOpen ? "flex" : "hidden"}
-        ${menuContainerClasses}
-        `}
-        >
-          <NavLink isOpenState={{ isOpen, setIsOpen }} />
+          <div
+            className={`
+            ${isOpen ? "flex" : "hidden"}
+            ${menuContainerClasses}
+            `}
+          >
+            <NavLink isOpenState={{ isOpen, setIsOpen }} />
 
-          <div className="flex items-center gap-4 p-4">
-            <Link
-              to="/bookmarks"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-              <Bookmark size={20} />
-            </Link>
-            <Link
-              to="/progress-tracker"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-            >
-              <TrendingUp size={20} />
-            </Link>
-            <ThemeToggle />
+            <div className="flex items-center gap-4 p-4">
+              <Link
+                to="/bookmarks"
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
+                <Bookmark size={20} />
+              </Link>
+              <Link
+                to="/progress-tracker"
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
+                <TrendingUp size={20} />
+              </Link>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </Container>
