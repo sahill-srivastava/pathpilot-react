@@ -23,7 +23,7 @@ const FooterBottom = () => {
         <span>PathPilot</span>
       </div>
 
-      <div className="flex flex-col gap-20 md:flex-row md:items-center">
+      <div className="flex flex-col gap-4 md:gap-20 md:flex-row md:items-center">
         <PrivacyPolicy />
         <TermsConditions />
       </div>
