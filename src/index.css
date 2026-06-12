@@ -78,20 +78,18 @@
 
 @layer components {
 
-    .link-hover {
-        @apply hover:text-[var(--accent-color)] 
+    .primary-btn {
+        @apply text-white bg-violet-700 hover:bg-violet-600 rounded-md text-[14px]
+    }
+
+    .secondary-btn {
+        @apply text-white light:text-violet-700 light:hover:text-white bg-transparent hover:bg-violet-700 border hover:border-violet-700 rounded-md text-[14px]
     }
 }
 
+@layer utilities {
 
-/* light theme */
-/* --primary-color: #2563EB;
-    --secondary-color: #1E293B;
-    --accent-color: #8B5CF6;
-    --background-color: #F8FAFC;
-    --text-color: #0F172A;
-    --black-color: #000;
-    --white-color: #fff;
-    --success-color: #22C55E;
-    --warning-color: #F59E0B;
-    --error-color: #EF4444; */
+  .link-hover {
+    @apply hover:text-[var(--accent-color)];
+  }
+}

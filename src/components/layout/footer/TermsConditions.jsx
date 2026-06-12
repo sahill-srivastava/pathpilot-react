@@ -1,7 +1,7 @@
 
 const TermsConditions = () => {
   return (
-    <div className="cursor-pointer">Terms & Conditions</div>
+    <div className="cursor-pointer link-hover">Terms & Conditions</div>
   )
 }
 

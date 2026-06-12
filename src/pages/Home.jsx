@@ -1,6 +1,9 @@
-export default function Home () {
+import HeroSection from "../components/layout/HeroSection";
 
-    return (
-        <div>Home</div>
-    )
+export default function Home() {
+  return (
+    <>
+      <HeroSection />
+    </>
+  );
 }
