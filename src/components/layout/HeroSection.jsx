@@ -3,11 +3,12 @@ import Container from "./Container";
 import heroBanner from "../../assets/hero-banner.png";
 
 import useFadeRight from "../../hooks/useFadeRight";
+import useZoomIn from "../../hooks/useZoomIn";
 
 export default function HeroSection() {
   const headingRef = useFadeRight();
   const paraRef = useFadeRight();
-  const btnTextRef = useFadeRight();
+  const btnTextRef = useZoomIn();
 
   return (
     <section
@@ -37,10 +38,8 @@ export default function HeroSection() {
             follow structured learning roadmaps to build confidence in their
             future.
           </p>
-          <div className="mt-10 flex gap-6">
-            <button ref={btnTextRef} className="primary-btn px-3 py-2.5">
-              Explore Careers
-            </button>
+          <div ref={btnTextRef} className="mt-10 flex gap-6">
+            <button className="primary-btn px-3 py-2.5">Explore Careers</button>
             <button className="secondary-btn px-3 py-2.5 light:text-white">
               Take Career Quiz
             </button>
