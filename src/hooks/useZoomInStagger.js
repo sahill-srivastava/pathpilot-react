@@ -3,18 +3,19 @@ import { gsap, useGSAP } from "../lib/gsap";
 
 
 
-export default function useFadeRight() {
+export default function useZoomInStagger() {
 
 
     const ref = useRef(null);
 
     useGSAP(() => {
 
-        gsap.from(ref.current, {
-            x: -200,
+        gsap.from(ref.current.children, {
+            scale: 0.6,
             opacity: 0,
             duration: 1,
-            ease: "power.out",
+            stagger: 0.2,
+            ease: "power2.out",
         });
 
 

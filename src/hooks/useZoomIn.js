@@ -10,11 +10,10 @@ export default function useZoomIn() {
 
     useGSAP(() => {
 
-        gsap.from(ref.current.children, {
+        gsap.from(ref.current, {
             scale: 0.6,
             opacity: 0,
             duration: 1,
-            stagger: 0.2,
             ease: "power2.out",
         });
 

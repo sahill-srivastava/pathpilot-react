@@ -3,7 +3,7 @@ import { gsap, useGSAP } from "../lib/gsap";
 
 
 
-export default function useFadeRight() {
+export default function useFadeBottom() {
 
 
     const ref = useRef(null);
@@ -11,10 +11,11 @@ export default function useFadeRight() {
     useGSAP(() => {
 
         gsap.from(ref.current, {
-            x: -200,
+            y: -100,
             opacity: 0,
-            duration: 1,
-            ease: "power.out",
+            duration: 1.5,
+            ease: "power2.out",
+            clearProps:"all",
         });
 
 

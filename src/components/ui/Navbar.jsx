@@ -6,7 +6,13 @@ import Logo from "./Logo";
 import { useEffect, useRef, useState } from "react";
 import { Bookmark, TextAlignJustify, TrendingUp, X } from "lucide-react";
 
+import useFadeBottom from "../../hooks/useFadeBottom";
+
+
 export default function Navbar() {
+
+  const navRef = useFadeBottom();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const menuRef = useRef(null);
@@ -29,7 +35,7 @@ export default function Navbar() {
         bg-white text-black  rounded mx-2
 
         flex-col  gap-4
-        absolute z-10 top-full left-0 right-0
+        absolute z-100 opacity-100 top-full left-0 right-0
   
         light:text-black light:border light:border-slate-300
         
@@ -45,6 +51,7 @@ export default function Navbar() {
       shadow-sm
       light:shadow-black/10
     "
+    ref={navRef}
     >
       <Container className="w-screen md:w-full flex items-center justify-between relative">
         <Logo />

@@ -2,13 +2,15 @@ import Container from "./Container";
 // import pathpilotHeroImg from  "../../assets/pathpilot-hero-img.png"
 import heroBanner from "../../assets/hero-banner.png";
 
-import useFadeRight from "../../hooks/useFadeRight";
-import useZoomIn from "../../hooks/useZoomIn";
+// import useFadeRight from "../../hooks/useFadeRight";
+// import useZoomInStagger from "../../hooks/useZoomInStagger";
+import useFadeRightStagger from "../../hooks/useFadeRightStagger";
 
 export default function HeroSection() {
-  const headingRef = useFadeRight();
-  const paraRef = useFadeRight();
-  const btnTextRef = useZoomIn();
+  // const headingRef = useFadeRight();
+  // const paraRef = useFadeRight();
+  // const btnTextRef = useZoomInStagger();
+  const heroRef = useFadeRightStagger();
 
   return (
     <section
@@ -23,22 +25,16 @@ export default function HeroSection() {
             
             "
       >
-        <div className="flex flex-col justify-center items-start">
-          <h1
-            ref={headingRef}
-            className="text-6xl font-semibold leading-16 md:leading-20  mb-5 light:text-white"
-          >
+        <div ref={heroRef} className="flex flex-col justify-center items-start">
+          <h1 className="text-6xl font-semibold leading-16 md:leading-20  mb-5 light:text-white">
             Discover Your Future, One Step at a Time.
           </h1>
-          <p
-            ref={paraRef}
-            className="max-w-lg text-lg leading-8 light:text-white"
-          >
+          <p className="max-w-lg text-lg leading-8 light:text-white">
             PathPilot helps students explore careers, discover interests, and
             follow structured learning roadmaps to build confidence in their
             future.
           </p>
-          <div ref={btnTextRef} className="mt-10 flex gap-6">
+          <div className="mt-10 flex gap-6">
             <button className="primary-btn px-3 py-2.5">Explore Careers</button>
             <button className="secondary-btn px-3 py-2.5 light:text-white">
               Take Career Quiz
@@ -46,7 +42,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div></div>
+        <div className="hidden"></div>
       </Container>
     </section>
   );
