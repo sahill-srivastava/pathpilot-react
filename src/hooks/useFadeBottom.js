@@ -14,7 +14,7 @@ export default function useFadeBottom() {
             y: -100,
             opacity: 0,
             duration: 1.5,
-            ease: "power2.out",
+            ease: "power1.out",
             clearProps:"all",
         });
 

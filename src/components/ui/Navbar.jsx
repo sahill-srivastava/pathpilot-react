@@ -8,9 +8,7 @@ import { Bookmark, TextAlignJustify, TrendingUp, X } from "lucide-react";
 
 import useFadeBottom from "../../hooks/useFadeBottom";
 
-
 export default function Navbar() {
-
   const navRef = useFadeBottom();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -46,12 +44,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="
-      shadow-white/40
-      shadow-sm
-      light:shadow-black/10
-    "
-    ref={navRef}
+      ref={navRef}
     >
       <Container className="w-screen md:w-full flex items-center justify-between relative">
         <Logo />
@@ -60,7 +53,7 @@ export default function Navbar() {
           <div
             className="flex text-white md:hidden light:text-black"
             onClick={() => {
-              setIsOpen(prev => !prev);
+              setIsOpen((prev) => !prev);
             }}
           >
             {isOpen ? <X size={20} /> : <TextAlignJustify size={20} />}

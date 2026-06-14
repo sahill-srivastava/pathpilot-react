@@ -1,4 +1,4 @@
-import Container from "./Container";
+import Container from "../layout/Container";
 // import pathpilotHeroImg from  "../../assets/pathpilot-hero-img.png"
 import heroBanner from "../../assets/hero-banner.png";
 
