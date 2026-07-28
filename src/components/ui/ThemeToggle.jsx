@@ -1,23 +1,23 @@
 import { Moon, Sun } from "lucide-react";
-
-import { useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme } from "../../utils/configSlice";
 
 export default function ThemeToggle() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const dispatch = useDispatch()
+
+  const theme = useSelector(store => store.config.defaultTheme);
 
   const icon = theme === "light" ? <Moon size={20} /> : <Sun size={20}/>;
 
-
   function handleTheme() {
     if (theme === "light") {
-      setTheme("dark");
+      dispatch(setTheme("dark"))
       document.querySelector("html").classList.remove("light");
       document.querySelector("html").classList.add("dark");
     }
 
     if (theme === "dark") {
-      setTheme("light");
+      dispatch(setTheme("light"))
       document.querySelector("html").classList.remove("dark");
       document.querySelector("html").classList.add("light");
     }

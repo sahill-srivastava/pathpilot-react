@@ -1,11 +1,10 @@
 import logo from "../../assets/logo.png";
 import logoLight from "../../assets/logo-light.png";
-import { useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
 import { Link } from "react-router-dom";
+import {  useSelector } from "react-redux";
 
 export default function Logo() {
-  const { theme } = new useContext(ThemeContext);
+  const theme = useSelector(store => store.config.defaultTheme)
 
   return (
     <>

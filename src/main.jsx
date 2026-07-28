@@ -3,10 +3,11 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import appRouter from "./routes/AppRoutes.jsx";
-import ThemeProvider from "./context/ThemeContext.jsx";
+import appStore from "./utils/appStore.js";
+import { Provider } from "react-redux";
 
 createRoot(document.getElementById("root")).render(
-  <ThemeProvider>
+  <Provider store={appStore}>
     <RouterProvider router={appRouter} />
-  </ThemeProvider>
+  </Provider>
 );
