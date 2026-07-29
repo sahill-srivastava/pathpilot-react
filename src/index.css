@@ -116,7 +116,17 @@
     }
 
     .secondary-btn {
-        @apply  hover:text-white bg-transparent hover:bg-violet-700 border rounded-md text-[14px] cursor-pointer
+        @apply hover:text-white bg-transparent hover:bg-violet-700 border rounded-md text-[14px] cursor-pointer
+    }
+
+    .card_bg_gradient {
+        background: #111111;
+        background: linear-gradient(180deg, rgba(17, 17, 17, 1) 60%, rgba(120, 80, 238, 0.8) 100%);
+    }
+
+    .card_bg_gradient_light {
+        background: #FFFFFF;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 1) 60%, rgba(120, 80, 238, 0.8) 100%);
     }
 }
 
