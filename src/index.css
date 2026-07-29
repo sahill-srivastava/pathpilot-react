@@ -67,6 +67,9 @@
         font-size: 16px;
     }
 
+    p {
+        @apply text-white light:text-gray-500
+    }
 
     body {
         font-family: var(--font-inter);
@@ -113,7 +116,7 @@
     }
 
     .secondary-btn {
-        @apply text-white bg-transparent hover:bg-violet-700 border hover:border-violet-700 rounded-md text-[14px] cursor-pointer
+        @apply  hover:text-white bg-transparent hover:bg-violet-700 border rounded-md text-[14px] cursor-pointer
     }
 }
 

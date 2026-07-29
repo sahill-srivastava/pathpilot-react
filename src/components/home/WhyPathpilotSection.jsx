@@ -4,6 +4,30 @@ import useFadeTop from "../../hooks/useFadeTop";
 
 export default function WhyPathpilotSection() {
 
+    const cardData = [
+        {
+            id: 1,
+            title: "Discover",
+            desc: "Explore different career paths and understand what each profession involves."
+        },
+        {
+            id: 2,
+            title: "Learn",
+            desc: "Follow curated learning roadmaps designed for beginners."
+        },
+        {
+            id: 3,
+            title: "Grow",
+            desc: "Build skills with confidence and move toward your goals."
+        }
+    ]
+
+    const cardClass = "shadow-xs shadow-white light:shadow-black rounded-xl p-10 flex flex-col items-center justify-center";
+
+    const cardTitleClass = "mb-2.5";
+
+    const cardDescClass = "text-center";
+
 
     const cardRef =  useFadeTop()
 
@@ -22,29 +46,14 @@ export default function WhyPathpilotSection() {
                 "
                 ref={cardRef}
                 >
-                    <div className=" 
-                    shadow-xs shadow-white rounded-xl p-10
-                    flex flex-col items-center justify-center
-                    "
-                    
-                    >
-                        <h3 className="mb-2.5">Discover</h3>
-                        <p className="text-center">Explore different career paths and understand what each profession involves.</p>
-                    </div>
-                    <div className=" 
-                    shadow-xs shadow-white rounded-xl p-10
-                    flex flex-col items-center justify-center
-                    ">
-                        <h3 className="mb-2.5">Learn</h3>
-                        <p className="text-center">Follow curated learning roadmaps designed for beginners.</p>
-                    </div>
-                    <div className=" 
-                    shadow-xs shadow-white rounded-xl p-10
-                    flex flex-col items-center justify-center
-                    ">
-                        <h3 className="mb-2.5">Grow</h3>
-                        <p className="text-center">Build skills with confidence and move toward your goals.</p>
-                    </div>
+                {
+                    cardData.map(card => (
+                        <div key={card.id} className={cardClass}>
+                            <h3 className={cardTitleClass}>{card.title}</h3>
+                            <p className={cardDescClass}>{card.desc}</p>
+                        </div>
+                    ))
+                }
                 </div>
             </Container>
         </section>
