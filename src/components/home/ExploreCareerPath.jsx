@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Container from "../layout/Container";
 import { exploreCareerPath } from "../../mockdata/home";
+import { MoveRight } from "lucide-react";
 
 const ExploreCareerPath = () => {
   const theme = useSelector((store) => store.config.defaultTheme);
@@ -49,6 +50,8 @@ const ExploreCareerPath = () => {
           ))}
         
         </div>
+
+        <button className="secondary-btn mt-20 py-2.5 px-5 flex gap-2.5 items-center">View More <MoveRight /></button>
       </Container>
     </section>
   );
