@@ -1,17 +1,19 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 // import "swiper/css/navigation";
 import "swiper/css/navigation";
 import Container from "../layout/Container";
-import { ChevronLeft, ChevronRight, MoveRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoveRight, MoveUpRight, Tally1 } from "lucide-react";
+import { learningRoadmapData } from "../../mockdata/home";
+import React from "react";
 
 const StructuredLearningRoadmaps = () => {
   return (
-    <section className="bg-violet-700/10">
+    <section className="">
       <Container
         className="
-                   min-h-[500px] my-[60px]
+                   min-h-[500px] my-[60px] py-10
                    flex flex-col items-center justify-center
                    "
       >
@@ -21,128 +23,69 @@ const StructuredLearningRoadmaps = () => {
           organised.
         </p>
 
-     <div className="swiper_container w-full relative">
-        <div className="swiper_navigation_container flex justify-between absolute -left-10 -right-10 top-[50%] bottom-[50%] z-10">
-          <button className="custom--prev cursor-pointer p-2">
-            <ChevronLeft size={24} />
-          </button>
-          <button className="custom-next cursor-pointer p-2">
-            <ChevronRight size={24} />
-          </button>
+        <div className="swiper_container w-full relative">
+          <div className="swiper_navigation_container flex justify-between absolute -left-10 -right-10 top-[50%] bottom-[50%] z-10">
+            <button className="custom--prev cursor-pointer p-2">
+              <ChevronLeft size={24} />
+            </button>
+            <button className="custom-next cursor-pointer p-2">
+              <ChevronRight size={24} />
+            </button>
+          </div>
+
+          <Swiper
+            loop={true}
+            speed={600}
+            modules={[Navigation, Autoplay]}
+            autoplay={{
+              delay: 4000,
+            }}
+            navigation={{
+              prevEl: ".custom--prev",
+              nextEl: ".custom-next",
+            }}
+            spaceBetween={30}
+            slidesPerView={3}
+            className="h-fit"
+          >
+            {learningRoadmapData.map((card) => (
+              <SwiperSlide
+                className="group bg-violet-800  px-5 py-8 rounded-2xl"
+                key={card.id}
+              >
+                <div className="w-full flex flex-col items-start gap-5">
+                  <h3 className="text-xl mb-2.5 font-medium ">{card.title}</h3>
+                  <ul className="flex flex-col gap-1 justify-start">
+                    {card.tools.map((tool, index) => (
+                      <React.Fragment key={index}>
+                        <li>
+                          <span className="mr-2">●</span>
+                          {tool}
+                        </li>
+                        {index < card.tools.length - 1 && (
+                          <li>
+                            <Tally1 />
+                          </li>
+                        )}
+                      </React.Fragment>
+                    ))}
+                  </ul>
+                  <a href={card.buttonUrl}>
+                    <button className="flex gap-2 items-center bg-white text-black rounded px-5 py-2.5 mt-5 cursor-pointer group/button">
+                    {card.buttonText}
+                    <MoveUpRight
+                      size={16}
+                      className="transition-transform duration-100 group-hover/button:translate-x-1 group-hover/button:-translate-y-1"
+                    />
+                  </button>
+                  </a>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
-         <Swiper
-         loop={true}
-          speed={600}
-          modules={[Navigation]}
-          navigation={{
-            prevEl: ".custom--prev",
-            nextEl: ".custom-next",
-          }}
-          spaceBetween={30}
-          slidesPerView={3}
-          className="h-[200px]"
-        >
-          <SwiperSlide className="bg-red-500 p-5 rounded">
-            <div className="w-full flex flex-col gap-10 items-start">
-              <h3>Frontend Development</h3>
-              <ul className="flex flex-wrap gap-2.5 justify-start">
-                <li>HTML</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>CSS</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>JavaScript </li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>React</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>Projects</li>
-              </ul>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="bg-yellow-300 p-5 rounded">
-            <div className="w-full flex flex-col gap-10 items-start">
-              <h3>Frontend Development</h3>
-              <ul className="flex flex-wrap gap-2.5 justify-start">
-                <li>HTML</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>CSS</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>JavaScript </li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>React</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>Projects</li>
-              </ul>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="bg-yellow-300 p-5 rounded">
-            <div className="w-full flex flex-col gap-10 items-start">
-              <h3>Frontend Development</h3>
-              <ul className="flex flex-wrap gap-2.5 justify-start">
-                <li>HTML</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>CSS</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>JavaScript </li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>React</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>Projects</li>
-              </ul>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide className="bg-yellow-300 p-5 rounded">
-            <div className="w-full flex flex-col gap-10 items-start">
-              <h3>Frontend Development</h3>
-              <ul className="flex flex-wrap gap-2.5 justify-start">
-                <li>HTML</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>CSS</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>JavaScript </li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>React</li>
-                <li>
-                  <MoveRight />
-                </li>
-                <li>Projects</li>
-              </ul>
-            </div>
-          </SwiperSlide>
-         
-         
-        </Swiper>
-     </div>
+         <button className="secondary-btn mt-20 py-2.5 px-5 flex gap-2.5 items-center">View More <MoveRight /></button>
       </Container>
     </section>
   );
