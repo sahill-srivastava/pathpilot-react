@@ -1,9 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
-import "swiper/css/navigation"
+// import "swiper/css/navigation";
+import "swiper/css/navigation";
 import Container from "../layout/Container";
-import { MoveRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, MoveRight } from "lucide-react";
 
 const StructuredLearningRoadmaps = () => {
   return (
@@ -20,17 +21,32 @@ const StructuredLearningRoadmaps = () => {
           organised.
         </p>
 
-        {/* Swiper  */}
-        <Swiper
-        modules={Navigation}
-        navigation
-        spaceBetween={30}
-        slidesPerView={3}
+     <div className="swiper_container w-full relative">
+        <div className="swiper_navigation_container flex justify-between absolute -left-10 -right-10 top-[50%] bottom-[50%] z-10">
+          <button className="custom--prev cursor-pointer p-2">
+            <ChevronLeft size={24} />
+          </button>
+          <button className="custom-next cursor-pointer p-2">
+            <ChevronRight size={24} />
+          </button>
+        </div>
+
+         <Swiper
+         loop={true}
+          speed={600}
+          modules={[Navigation]}
+          navigation={{
+            prevEl: ".custom--prev",
+            nextEl: ".custom-next",
+          }}
+          spaceBetween={30}
+          slidesPerView={3}
+          className="h-[200px]"
         >
-          <SwiperSlide>
-            <div className="flex flex-col gap-2.5 items-start">
+          <SwiperSlide className="bg-red-500 p-5 rounded">
+            <div className="w-full flex flex-col gap-10 items-start">
               <h3>Frontend Development</h3>
-              <ul className="flex gap-2.5 justify-start">
+              <ul className="flex flex-wrap gap-2.5 justify-start">
                 <li>HTML</li>
                 <li>
                   <MoveRight />
@@ -51,10 +67,10 @@ const StructuredLearningRoadmaps = () => {
               </ul>
             </div>
           </SwiperSlide>
-          <SwiperSlide>
-            <div className="w-full flex flex-col gap-2.5 items-start">
+          <SwiperSlide className="bg-yellow-300 p-5 rounded">
+            <div className="w-full flex flex-col gap-10 items-start">
               <h3>Frontend Development</h3>
-              <ul className="flex gap-2.5 justify-start">
+              <ul className="flex flex-wrap gap-2.5 justify-start">
                 <li>HTML</li>
                 <li>
                   <MoveRight />
@@ -75,10 +91,58 @@ const StructuredLearningRoadmaps = () => {
               </ul>
             </div>
           </SwiperSlide>
+          <SwiperSlide className="bg-yellow-300 p-5 rounded">
+            <div className="w-full flex flex-col gap-10 items-start">
+              <h3>Frontend Development</h3>
+              <ul className="flex flex-wrap gap-2.5 justify-start">
+                <li>HTML</li>
+                <li>
+                  <MoveRight />
+                </li>
+                <li>CSS</li>
+                <li>
+                  <MoveRight />
+                </li>
+                <li>JavaScript </li>
+                <li>
+                  <MoveRight />
+                </li>
+                <li>React</li>
+                <li>
+                  <MoveRight />
+                </li>
+                <li>Projects</li>
+              </ul>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="bg-yellow-300 p-5 rounded">
+            <div className="w-full flex flex-col gap-10 items-start">
+              <h3>Frontend Development</h3>
+              <ul className="flex flex-wrap gap-2.5 justify-start">
+                <li>HTML</li>
+                <li>
+                  <MoveRight />
+                </li>
+                <li>CSS</li>
+                <li>
+                  <MoveRight />
+                </li>
+                <li>JavaScript </li>
+                <li>
+                  <MoveRight />
+                </li>
+                <li>React</li>
+                <li>
+                  <MoveRight />
+                </li>
+                <li>Projects</li>
+              </ul>
+            </div>
+          </SwiperSlide>
+         
+         
         </Swiper>
-
-
-
+     </div>
       </Container>
     </section>
   );
