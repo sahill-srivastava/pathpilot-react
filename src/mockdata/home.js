@@ -80,41 +80,47 @@ export const learningRoadmapData = [
         title: "Frontend Development",
         tools: ["HTML", "CSS", "JavaScript", "React", "Git", "Projects"],
         buttonText: "View Roadmap",
-        buttonUrl: "#"
+        buttonUrl: "#",
+        bgColor: "bg-zinc-900"
     },
     {
         id: 2,
         title: "Backend Development",
         tools: ["Node.js", "Express.js", "REST APIs", "MongoDB", "Authentication", "Deployment"],
         buttonText: "View Roadmap",
-        buttonUrl: "#"
+        buttonUrl: "#",
+        bgColor: "bg-violet-800"
     },
     {
         id: 3,
         title: "MERN Stack Development",
         tools: ["React", "Node.js", "Express", "MongoDB", "JWT", "Full Stack Projects"],
         buttonText: "View Roadmap",
-        buttonUrl: "#"
+        buttonUrl: "#",
+        bgColor: "bg-zinc-900"
     },
     {
         id: 4,
         title: "Java Full Stack",
         tools: ["Java", "Spring Boot", "REST APIs", "MySQL", "React", "Deployment"],
         buttonText: "View Roadmap",
-        buttonUrl: "#"
+        buttonUrl: "#",
+        bgColor: "bg-violet-800"
     },
     {
         id: 5,
         title: "Python Full Stack",
         tools: ["Python", "Django", "REST APIs", "PostgreSQL", "React", "Projects"],
         buttonText: "View Roadmap",
-        buttonUrl: "#"
+        buttonUrl: "#",
+        bgColor: "bg-zinc-900"
     },
     {
         id: 6,
         title: "UI/UX Design",
         tools: ["Design Principles", "Wireframes", "Figma", "Prototypes", "Design Systems", "Portfolio"],
         buttonText: "View Roadmap",
-        buttonUrl: "#"
+        buttonUrl: "#",
+        bgColor: "bg-violet-800"
     }
 ]

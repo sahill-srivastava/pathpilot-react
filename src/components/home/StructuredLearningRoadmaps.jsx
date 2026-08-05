@@ -35,7 +35,7 @@ const StructuredLearningRoadmaps = () => {
 
           <Swiper
             loop={true}
-            speed={600}
+            speed={800}
             modules={[Navigation, Autoplay]}
             autoplay={{
               delay: 4000,
@@ -45,12 +45,20 @@ const StructuredLearningRoadmaps = () => {
               nextEl: ".custom-next",
             }}
             spaceBetween={30}
-            slidesPerView={3}
+            slidesPerView={1}
+            slidesPerGroup={2}
+            breakpoints={
+              {
+                390: {
+                  slidesPerView: 3
+                }
+              }
+            }
             className="h-fit"
           >
             {learningRoadmapData.map((card) => (
               <SwiperSlide
-                className="group bg-violet-800  px-5 py-8 rounded-2xl"
+              className={`${card.bgColor} group  px-5 py-8 rounded-2xl`}
                 key={card.id}
               >
                 <div className="w-full flex flex-col items-start gap-5">
