@@ -24,7 +24,7 @@ const StructuredLearningRoadmaps = () => {
         </p>
 
         <div className="swiper_container w-full relative">
-          <div className="swiper_navigation_container flex justify-between absolute -left-10 -right-10 top-[50%] bottom-[50%] z-10">
+          <div className="swiper_navigation_container flex justify-between absolute -left-2 -right-2 md:-left-10 md:-right-10 top-[50%] bottom-[50%] z-10">
             <button className="custom--prev cursor-pointer p-2">
               <ChevronLeft size={24} />
             </button>
