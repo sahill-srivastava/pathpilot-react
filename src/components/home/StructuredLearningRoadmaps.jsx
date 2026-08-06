@@ -17,7 +17,7 @@ const StructuredLearningRoadmaps = () => {
                    flex flex-col items-center justify-center
                    "
       >
-        <h2 className="mb-5">Structured Learning Roadmaps</h2>
+        <h2 className="mb-5 text-center">Structured Learning Roadmaps</h2>
         <p className="mb-15 text-center">
           Step-by-step learning paths designed to keep you focused and
           organised.
@@ -63,7 +63,7 @@ const StructuredLearningRoadmaps = () => {
               >
                 <div className="w-full flex flex-col items-start gap-5">
                   <h3 className="text-xl mb-2.5 font-medium ">{card.title}</h3>
-                  <ul className="flex flex-col gap-1 justify-start">
+                  <ul className="flex flex-col gap-0 justify-start">
                     {card.tools.map((tool, index) => (
                       <React.Fragment key={index}>
                         <li>
