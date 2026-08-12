@@ -1,6 +1,4 @@
-
 // Why Pathpilot
-
 export const whyPathpilotData = [
     {
         id: 1,
@@ -19,9 +17,7 @@ export const whyPathpilotData = [
     }
 ]
 
-
 // Explore Career Paths
-
 export const exploreCareerPath = [
     {
         id: 1,
@@ -73,7 +69,7 @@ export const exploreCareerPath = [
     },
 ]
 
-
+// Learning Roadmaps
 export const learningRoadmapData = [
     {
         id: 1,
@@ -123,4 +119,38 @@ export const learningRoadmapData = [
         buttonUrl: "#",
         bgColor: "bg-violet-800"
     }
+]
+
+// FAQs
+export const faqs = [
+    {
+        id: 1,
+        title: "What is PathPilot?",
+        desc: "PathPilot helps learners explore careers, follow structured roadmaps, and build job-ready skills."
+    },
+    {
+        id: 2,
+        title: "Is PathPilot free to use?",
+        desc: "Yes. You can explore all core features for free while the platform is under development."
+    },
+    {
+        id: 3,
+        title: "Who is PathPilot designed for?",
+        desc: "Students, beginners, career switchers, and anyone looking to learn in-demand skills."
+    },
+    {
+        id: 4,
+        title: "Do I need any prior experience?",
+        desc: "No. Most roadmaps start from the fundamentals and are beginner-friendly."
+    },
+    {
+        id: 5,
+        title: "Can I track my learning progress?",
+        desc: "Yes. Save your progress, mark completed topics, and continue learning anytime."
+    },
+    {
+        id: 6,
+        title: "Will more careers and roadmaps be added?",
+        desc: "Absolutely. New career paths, learning roadmaps, and resources will be added regularly."
+    },
 ]
