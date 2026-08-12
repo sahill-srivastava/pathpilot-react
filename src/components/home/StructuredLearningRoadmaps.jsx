@@ -62,8 +62,8 @@ const StructuredLearningRoadmaps = () => {
                 key={card.id}
               >
                 <div className="w-full flex flex-col items-start gap-5">
-                  <h3 className="text-xl mb-2.5 font-medium ">{card.title}</h3>
-                  <ul className="flex flex-col gap-0 justify-start">
+                  <h3 className="text-xl mb-2.5 font-medium light:text-white">{card.title}</h3>
+                  <ul className="flex flex-col gap-0 justify-start light:text-white">
                     {card.tools.map((tool, index) => (
                       <React.Fragment key={index}>
                         <li>

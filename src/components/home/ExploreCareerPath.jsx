@@ -7,7 +7,7 @@ const ExploreCareerPath = () => {
   const theme = useSelector((store) => store.config.defaultTheme);
 
   const exploreCareerPathClass = `
-            ${theme === "light" ? "card_bg_gradient_light" : "card_bg_gradient"}
+            ${theme === "light" ? "card_bg_gradient" : "card_bg_gradient"}
             h-[400px] rounded-2xl p-6
             flex flex-col gap-4 justify-between
             `;
@@ -35,11 +35,11 @@ const ExploreCareerPath = () => {
             <div
              className={exploreCareerPathClass}
             >
-              <div className="flex flex-col gap-3">
-                <h3 className="text-xl mt-10 mb-5 font-medium">{card.title}</h3>
-                <p>Difficulty: {card.difficulty}</p>
-                <p>Duration: {card.duration}</p>
-                <p>
+              <div className="flex flex-col gap-3 ">
+                <h3 className="text-xl mt-10 mb-5 font-medium light:text-white">{card.title}</h3>
+                <p className="light:text-white">Difficulty: {card.difficulty}</p>
+                <p className="light:text-white">Duration: {card.duration}</p>
+                <p className="light:text-white">
                  {card.desc}
                 </p>
               </div>

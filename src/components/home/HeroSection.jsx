@@ -30,8 +30,8 @@ export default function HeroSection() {
             "
       >
         <div ref={heroRef} className="flex flex-col justify-center items-start">
-          <h1 className="text-6xl font-semibold leading-16 md:leading-20  mb-5 light:text-black">
-            Discover Your Future, One Step at a Time.
+          <h1 className="!text-3xl md:!text-6xl  md:leading-16 md:leading-20  mb-5 light:text-black">
+            Discover Your Future, <span className="text-violet-600">One Step</span> at a Time.
           </h1>
           <p className="max-w-lg text-lg leading-8 light:text-gray-500">
             PathPilot helps students explore careers, discover interests, and

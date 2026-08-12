@@ -16,10 +16,10 @@ const Faqs = () => {
           {faqs.map((faq) => (
             <div
               key={faq.id}
-              className="bg-zinc-800 hover:bg-violet-800 px-5 md:px-10 py-5 rounded-2xl flex flex-col gap-2"
+              className="bg-zinc-800 light:bg-violet-600 hover:bg-violet-800 px-5 md:px-10 py-5 rounded-2xl flex flex-col gap-2"
             >
-              <h4>{faq.title}</h4>
-              <p>{faq.desc}</p>
+              <h4 className="light:text-white">{faq.title}</h4>
+              <p className="light:text-white">{faq.desc}</p>
             </div>
           ))}
         </div>
