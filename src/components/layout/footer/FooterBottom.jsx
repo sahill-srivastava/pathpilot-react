@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import PrivacyPolicy from "./Policy";
 import TermsConditions from "./TermsConditions";
 import { Copyright } from "lucide-react";
+import { DEVELOPER_URL } from "../../../utils/constants";
 
 const FooterBottom = () => {
   const d = new Date();
@@ -20,7 +22,15 @@ const FooterBottom = () => {
         <span>Copyright</span>
         <Copyright size={18} />
         {d.getFullYear()}
-        <span>PathPilot</span>
+        <span>Pathpilot - Designed & Developed by</span>
+        <a
+          href={DEVELOPER_URL}
+          className="hover:text-violet-600"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sahil Srivastava
+        </a>
       </div>
 
       <div className="flex flex-col gap-4 md:gap-20 md:flex-row md:items-center">

@@ -1,0 +1,1 @@
+export const DEVELOPER_URL = "https://thesahilsrivastava.com/";
