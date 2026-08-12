@@ -1,18 +1,18 @@
+import { ArrowRight } from "lucide-react";
 import Container from "../layout/Container";
-import CtaBgImg from "../../assets/cta-banner.png"
 
 const CtaBanner = () => {
   return (
-    <section className="h-[200px] md:h-[400px] cta_bg_color" >
+    <section className="cta_bg_color h-[300px] md:h-[400px] " >
       <Container
         className="
-                      my-[60px] py-10
-                      flex flex-col items-center justify-center
+                    h-full  my-[60px] py-10
+                      flex flex-col items-center justify-center gap-2.5
                       "
       >
-        <h2 className="mb-10 text-center">Ready to Start Your Learning Journey?</h2>
-        <p>Explore careers, discover learning roadmaps, and take your first step toward building a successful future.</p>
-        
+        <h2 className="text-center md:text-4xl mb-1 md:mb-4">Ready to Start Your Learning Journey?</h2>
+        <p className="text-center">Explore careers, discover learning roadmaps, and take your first step toward building a successful future.</p>
+        <button className="mt-5 md:mt-10 primary-btn px-4 md:px-10 py-2.5 md:py-4 flex gap-1 items-center">Get Started <ArrowRight /></button>
        
       </Container>
     </section>
