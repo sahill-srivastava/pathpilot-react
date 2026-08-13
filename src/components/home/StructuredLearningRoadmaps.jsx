@@ -46,11 +46,12 @@ const StructuredLearningRoadmaps = () => {
             }}
             spaceBetween={30}
             slidesPerView={1}
-            slidesPerGroup={2}
+            slidesPerGroup={1}
             breakpoints={
               {
                 390: {
-                  slidesPerView: 3
+                  slidesPerView: 3,
+                  slidesPerGroup: 2
                 }
               }
             }
