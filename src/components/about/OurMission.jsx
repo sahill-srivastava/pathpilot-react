@@ -6,51 +6,45 @@ const OurMission = () => {
     <section>
       <Container
         className="
-                       h-full  py-10
+                       h-full  py-20
                          grid grid-cols-1 gap-10
                          "
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div className="h-[400px] bg-zinc-900 rounded-4xl p-8">
-            <h2 className="w-1/2 text-6xl leading-tight mb-5">Our Mission</h2>
+          <div className=" bg-zinc-900 rounded-4xl  p-6 md:p-8">
+            <h2 className="w-1/2 text-4xl md:text-6xl leading-tight mb-5">Our Mission</h2>
             <p className="leading-relaxed">
-              Choosing a career can feel overwhelming when there are hundreds of
-              technologies, roles, courses, and learning resources available.
-              PathPilot's mission is to simplify that journey by bringing career
-              exploration and structured learning into one place. We want
-              learners to spend less time wondering{" "}
-              <strong>"What should I learn?" </strong>
-              and more time actually learning and building.
+              Choosing a career shouldn't feel overwhelming. PathPilot brings
+              career exploration and structured learning together, helping
+              learners spend less time wondering “What should I learn?” and more
+              time learning, building, and moving forward.
             </p>
           </div>
-          <div className="h-[400px] bg-violet-800 rounded-4xl p-8">
-            <h2 className="w-1/2 text-6xl leading-tight mb-5">Our Vision</h2>
+          <div className=" bg-violet-800 rounded-4xl  p-6 md:p-8">
+            <h2 className="w-1/2 text-4xl md:text-6xl leading-tight mb-5">Our Vision</h2>
             <p className="leading-relaxed">
-              PathPilot is being built with a long-term vision: to become a
-              practical career and learning companion that helps people move
-              from <strong>confusion → clarity → skills → opportunities</strong>
-              . As the platform evolves, we aim to introduce more personalized
-              learning experiences, progress tracking, career assessments,
-              practical projects, and other tools that help learners move
-              forward with confidence.
+              PathPilot aims to become a practical career and learning companion
+              that helps people move from confusion → clarity → skills →
+              opportunities — with personalized learning, progress tracking,
+              assessments, and practical projects.
             </p>
           </div>
         </div>
-        <div className="bg-zinc-900 rounded-4xl p-8 grid grid-cols-1 md:grid-cols-2">
-         <div>
-           <h2 className="w-[20%] text-6xl leading-tight mb-10">Our Approach</h2>
-          <h4 className="text-xl mb-4">Learn With Direction, Not Randomly</h4>
-          <p className=" leading-relaxed">
-            PathPilot focuses on a simple
-            principle: <strong>Know where you're going before you start running. </strong>
-            Instead of jumping between random tutorials and technologies,
-            learners can understand the bigger picture, choose a direction, and
-            follow a structured path toward their goals.
-          </p>
-         </div>
-         <div className="flex justify-end">
-          <img className="w-[30%]" src={BoyImg} alt="boy-image" />
-         </div>
+        <div className="bg-zinc-900 rounded-4xl  p-6 md:p-8 grid grid-cols-1 md:grid-cols-2">
+          <div className="flex flex-col justify-center">
+            <h2 className="w-[20%] text-4xl md:text-6xl leading-tight mb-10">
+              Our Approach
+            </h2>
+            <h4 className="text-xl mb-4">Learn With Direction, Not Randomly</h4>
+            <p className=" leading-relaxed">
+              Know where you're going before you start running. PathPilot helps
+              learners understand their options, choose a direction, and follow
+              a structured path toward their goals.
+            </p>
+          </div>
+          <div className="hidden md:flex justify-center ms-10 ">
+            <img className="w-[30%]" src={BoyImg} alt="boy-image" />
+          </div>
         </div>
       </Container>
     </section>
