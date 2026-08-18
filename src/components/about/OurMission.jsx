@@ -12,17 +12,17 @@ const OurMission = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className=" bg-zinc-900 rounded-4xl  p-6 md:p-8">
-            <h2 className="w-1/2 text-4xl md:text-6xl leading-tight mb-5">Our Mission</h2>
-            <p className="leading-relaxed">
+            <h2 className="w-1/2 text-4xl md:text-6xl leading-tight mb-5 light:text-white">Our Mission</h2>
+            <p className="leading-relaxed light:text-white">
               Choosing a career shouldn't feel overwhelming. PathPilot brings
               career exploration and structured learning together, helping
               learners spend less time wondering “What should I learn?” and more
               time learning, building, and moving forward.
             </p>
           </div>
-          <div className=" bg-violet-800 rounded-4xl  p-6 md:p-8">
-            <h2 className="w-1/2 text-4xl md:text-6xl leading-tight mb-5">Our Vision</h2>
-            <p className="leading-relaxed">
+          <div className=" bg-violet-800 rounded-4xl  p-6 md:p-8 ">
+            <h2 className="w-1/2 text-4xl md:text-6xl leading-tight mb-5 light:text-white">Our Vision</h2>
+            <p className="leading-relaxed light:text-white">
               PathPilot aims to become a practical career and learning companion
               that helps people move from confusion → clarity → skills →
               opportunities — with personalized learning, progress tracking,
@@ -32,11 +32,11 @@ const OurMission = () => {
         </div>
         <div className="bg-zinc-900 rounded-4xl  p-6 md:p-8 grid grid-cols-1 md:grid-cols-2">
           <div className="flex flex-col justify-center">
-            <h2 className="w-[20%] text-4xl md:text-6xl leading-tight mb-10">
+            <h2 className="w-[20%] text-4xl md:text-6xl leading-tight mb-10 light:text-white">
               Our Approach
             </h2>
-            <h4 className="text-xl mb-4">Learn With Direction, Not Randomly</h4>
-            <p className=" leading-relaxed">
+            <h4 className="text-xl mb-4 light:text-white">Learn With Direction, Not Randomly</h4>
+            <p className=" leading-relaxed light:text-white">
               Know where you're going before you start running. PathPilot helps
               learners understand their options, choose a direction, and follow
               a structured path toward their goals.
