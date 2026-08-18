@@ -154,3 +154,15 @@ export const faqs = [
         desc: "Absolutely. New career paths, learning roadmaps, and resources will be added regularly."
     },
 ]
+
+//CTA 
+export const homeCtaData = {
+    heading: {
+        prefixText: "Ready to Start Your",
+        highlightedText: "Learning",
+        suffixText: "Journey?"
+    },
+    description: "Explore careers, discover learning roadmaps, and take your first step toward building a successful future.",
+    buttonText: "Explore",
+    buttonUrl: "/careers"
+}

@@ -1,9 +1,10 @@
-import CtaBanner from "../components/home/CtaBanner";
 import ExploreCareerPath from "../components/home/ExploreCareerPath";
 import Faqs from "../components/home/Faqs";
 import HeroSection from "../components/home/HeroSection";
 import StructuredLearningRoadmaps from "../components/home/StructuredLearningRoadmaps";
 import WhyPathpilotSection from "../components/home/WhyPathpilotSection";
+import CtaBanner from "../components/layout/CtaBanner";
+import { homeCtaData } from "../mockdata/home";
 
 export default function Home() {
   return (
@@ -13,7 +14,7 @@ export default function Home() {
       <ExploreCareerPath />
       <StructuredLearningRoadmaps />
       <Faqs />
-      <CtaBanner />
+      <CtaBanner data={homeCtaData} />
     </>
   );
 }
