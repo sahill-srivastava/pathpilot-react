@@ -1,6 +1,11 @@
+import InnerHeroSection from "../components/layout/InnerHeroSection";
+import { careerHeroSectionData } from "../mockdata/career";
+
 export default function Careers () {
 
     return (
-        <div>Careers</div>
+       <>
+       <InnerHeroSection data={careerHeroSectionData} />
+       </>
     )
 }

@@ -32,26 +32,27 @@ const ExploreCareerPath = () => {
                    "
         >
           {exploreCareerPath.map((card) => (
-            <div
-             className={exploreCareerPathClass}
-            >
+            <div key={card.id} className={exploreCareerPathClass}>
               <div className="flex flex-col gap-3 ">
-                <h3 className="text-xl mt-10 mb-5 font-medium light:text-white">{card.title}</h3>
-                <p className="light:text-white">Difficulty: {card.difficulty}</p>
-                <p className="light:text-white">Duration: {card.duration}</p>
+                <h3 className="text-xl mt-10 mb-5 font-medium light:text-white">
+                  {card.title}
+                </h3>
                 <p className="light:text-white">
-                 {card.desc}
+                  Difficulty: {card.difficulty}
                 </p>
+                <p className="light:text-white">Duration: {card.duration}</p>
+                <p className="light:text-white">{card.desc}</p>
               </div>
               <button className="hover:text-black bg-transparent hover:bg-white border rounded-md text-[14px] cursor-pointer light:text-white py-2 mt-5">
-               {card.buttonText}
+                {card.buttonText}
               </button>
             </div>
           ))}
-        
         </div>
 
-        <button className="secondary-btn mt-20 py-2.5 px-5 flex gap-2.5 items-center">View More <MoveRight /></button>
+        <button className="secondary-btn mt-20 py-2.5 px-5 flex gap-2.5 items-center">
+          View More <MoveRight />
+        </button>
       </Container>
     </section>
   );

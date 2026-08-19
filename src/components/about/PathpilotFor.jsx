@@ -6,7 +6,7 @@ const PathpilotFor = () => {
     <section>
       <Container
         className="
-                        h-full md:my-15
+                        h-full md:mt-20 md:mb-40
                          grid grid-cols-1 md:grid-cols-2 gap-5
                           "
       >
@@ -17,7 +17,13 @@ const PathpilotFor = () => {
             alt="pathpilot for image"
           />
         </div>
-        <div className="md:py-10 flex flex-col gap-4">
+        <div className=" flex flex-col gap-4">
+           <span
+            className="bg-violet-900 light:text-white w-fit rounded-4xl mb-2.5 font-medium px-5 py-2.5 uppercase"
+            style={{ fontSize: "13px" }}
+          >
+            Our Story
+          </span>
           <h2 className="text-3xl md:text-4xl mb-2">Who Is PathPilot For?</h2>
           <p className="ps-2 text-lg">PathPilot is designed for:</p>
           <ul className="ps-2 list-disc  ms-6 flex flex-col gap-4 text-lg">
