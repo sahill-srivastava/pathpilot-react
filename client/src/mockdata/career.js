@@ -29,7 +29,7 @@ export const careerHeroSectionData = {
 export const careersData = [
     {
         id: 1,
-        title: "Frontend Development",
+        title: "Frontend Developer",
         difficulty: "Beginner–Intermediate",
         duration: "6–8 Months",
         desc: "Build responsive and interactive user interfaces using HTML, CSS, JavaScript, React, and modern frontend technologies.",

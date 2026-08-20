@@ -4,9 +4,9 @@ import Container from "../layout/Container";
 import SearchCareer from "./SearchCareer";
 
 const CareerCards = () => {
-      const theme = useSelector((store) => store.config.defaultTheme);
+  const theme = useSelector((store) => store.config.defaultTheme);
 
-      const careersDataClass = `
+  const careersDataClass = `
             ${theme === "light" ? "card_bg_gradient" : "card_bg_gradient"}
             h-[400px] rounded-2xl p-6
             flex flex-col gap-4 justify-between
@@ -19,10 +19,32 @@ const CareerCards = () => {
                flex flex-col items-center justify-center
                "
       >
-        <SearchCareer />
+        <div className="w-full">
+          <div className="container relative overflow-hidden">
+            <div className="mb-4 ms-4 flex flex-nowrap items-center gap-2 text-[13px] overflow-x-auto scrollbar-none">
+              <strong>Popular:</strong>
+              <ul className="ms-2 flex gap-2">
+                <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
+                  Web Development
+                </li>
+                <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
+                  Data
+                </li>
+                <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
+                  Design
+                </li>
+                <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
+                  AI
+                </li>
+              </ul>
+            </div>
+          </div>
+          <SearchCareer />
+        </div>
+
         <div
           className="
-                   w-full
+                   w-full my-15
                    grid grid-cols-1 gap-10
                    md:grid-cols-3
                    "
@@ -45,8 +67,6 @@ const CareerCards = () => {
             </div>
           ))}
         </div>
-
-       
       </Container>
     </section>
   );
