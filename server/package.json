@@ -1,0 +1,16 @@
+{
+  "name": "pathpilot-server",
+  "version": "1.0.0",
+  "description": "Backend API for PathPilot career guidance platform",
+  "license": "ISC",
+  "author": "Sahil",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
