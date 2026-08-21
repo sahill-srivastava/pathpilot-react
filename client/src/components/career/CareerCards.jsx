@@ -11,6 +11,43 @@ const CareerCards = () => {
             h-[400px] rounded-2xl p-6
             flex flex-col gap-4 justify-between
             `;
+
+  // const debounce = (fn, delay) => {
+
+  //   let timer;
+
+  //   return function(...args) {
+
+  //     clearTimeout(timer);
+
+  //     timer = setTimeout(() => {
+  //       fn(...args)
+  //     }, delay)
+  //   }
+  // };
+
+  const filterCareerData = (value) => {
+    const query = value.toLowerCase().trim().replace(/\s+/g, " ");
+
+    console.log("query: ", query)
+
+    let result;
+
+    //check title
+    result = careersData.filter(item => {
+      // console.log(item.title.toLowerCase())
+      return item.title.toLowerCase().includes(query)
+    })
+    
+    console.log("result: ", result)
+
+  };
+
+      //dbounce query
+    // const debouncedFilter = debounce(filterCareerData, 100)
+
+    // console.log(debouncedFilter)
+
   return (
     <section>
       <Container
@@ -39,7 +76,7 @@ const CareerCards = () => {
               </ul>
             </div>
           </div>
-          <SearchCareer />
+          <SearchCareer filterCareerData={filterCareerData} />
         </div>
 
         <div
