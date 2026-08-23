@@ -38,8 +38,17 @@ const CareerCards = () => {
       // console.log(item.title.toLowerCase())
       return item.title.toLowerCase().includes(query)
     })
+
+    console.log("res1: ", result)
+
+    //check skill
+    result = careersData.filter(item => {
+       item.skills.filter(skill => {
+        return skill.toLowerCase().includes(query);
+       })
+    })
     
-    console.log("result: ", result)
+    console.log("res2: ", result)
 
   };
 
