@@ -2,9 +2,11 @@ import { useSelector } from "react-redux";
 import { careersData } from "../../mockdata/career";
 import Container from "../layout/Container";
 import SearchCareer from "./SearchCareer";
+import { useState } from "react";
 
 const CareerCards = () => {
   const theme = useSelector((store) => store.config.defaultTheme);
+  const [ result, setResult] = useState([...careersData])
 
   const careersDataClass = `
             ${theme === "light" ? "card_bg_gradient" : "card_bg_gradient"}
@@ -29,33 +31,25 @@ const CareerCards = () => {
   const filterCareerData = (value) => {
     const query = value.toLowerCase().trim().replace(/\s+/g, " ");
 
-    console.log("query: ", query)
 
-    let result;
 
     //check title
-    result = careersData.filter(item => {
+    const result = careersData.filter((item) => {
       // console.log(item.title.toLowerCase())
-      return item.title.toLowerCase().includes(query)
-    })
+      return item.title.toLowerCase().includes(query);
+    });
 
-    console.log("res1: ", result)
 
-    //check skill
-    result = careersData.filter(item => {
-       item.skills.filter(skill => {
-        return skill.toLowerCase().includes(query);
-       })
-    })
-    
-    console.log("res2: ", result)
 
+    setResult(result)
+
+    return result;
   };
 
-      //dbounce query
-    // const debouncedFilter = debounce(filterCareerData, 100)
+  //dbounce query
+  // const debouncedFilter = debounce(filterCareerData, 100)
 
-    // console.log(debouncedFilter)
+  // console.log(debouncedFilter)
 
   return (
     <section>
@@ -95,7 +89,7 @@ const CareerCards = () => {
                    md:grid-cols-3
                    "
         >
-          {careersData.map((card) => (
+          {result && result.map((card) => (
             <div key={card.id} className={careersDataClass}>
               <div className="flex flex-col gap-3 ">
                 <h3 className="text-xl mt-10 mb-5 font-medium light:text-white">
