@@ -6,7 +6,7 @@ const SearchCareer = ({ filterCareerData }) => {
 
   const handleSearch = (e) => {
     const value = e.target.value;
-    setQuery(e.target.value);
+    setQuery(value);
     filterCareerData(value)
   }
 
