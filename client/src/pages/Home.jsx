@@ -1,8 +1,8 @@
-import ExploreCareerPath from "../components/home/ExploreCareerPath";
-import Faqs from "../components/home/Faqs";
-import HeroSection from "../components/home/HeroSection";
-import StructuredLearningRoadmaps from "../components/home/StructuredLearningRoadmaps";
-import WhyPathpilotSection from "../components/home/WhyPathpilotSection";
+import ExploreCareerPath from "../components/homeComp/ExploreCareerPath";
+import Faqs from "../components/homeComp/Faqs";
+import HeroSection from "../components/homeComp/HeroSection";
+import StructuredLearningRoadmaps from "../components/homeComp/StructuredLearningRoadmaps";
+import WhyPathpilotSection from "../components/homeComp/WhyPathpilotSection";
 import CtaBanner from "../components/layout/CtaBanner";
 import { homeCtaData } from "../mockdata/home";
 

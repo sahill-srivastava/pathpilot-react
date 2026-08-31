@@ -1,5 +1,5 @@
-import OurMission from "../components/about/OurMission";
-import PathpilotFor from "../components/about/PathpilotFor";
+import OurMission from "../components/aboutComp/OurMission";
+import PathpilotFor from "../components/aboutComp/PathpilotFor";
 import CtaBanner from "../components/layout/CtaBanner";
 import InnerHeroSection from "../components/layout/InnerHeroSection";
 import { aboutCtaData, aboutHeroSectionData } from "../mockdata/about";
