@@ -9,6 +9,7 @@ import Bookmarks from "../pages/Bookmarks";
 import ProgressTracker from "../pages/ProgressTracker";
 import About from "../pages/About";
 import PageNotFound from "../pages/PageNotFound";
+import CareerDetail from "../components/careerComp/CareerDetail";
 
 const appRouter = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const appRouter = createBrowserRouter([
       {
         path: "careers",
         element: <Careers />,
+      },
+      {
+        path: "careers/:slug",
+        element: <CareerDetail />,
       },
       {
         path: "roadmaps",

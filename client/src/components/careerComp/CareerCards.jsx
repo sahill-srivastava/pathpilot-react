@@ -3,6 +3,7 @@ import { careersData } from "../../mockdata/career";
 import Container from "../layout/Container";
 import SearchCareer from "./SearchCareer";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CareerCards = () => {
   const theme = useSelector((store) => store.config.defaultTheme);
@@ -101,9 +102,9 @@ const CareerCards = () => {
                 <p className="light:text-white">Duration: {card.duration}</p>
                 <p className="light:text-white">{card.desc}</p>
               </div>
-              <button className="hover:text-black bg-transparent hover:bg-white border rounded-md text-[14px] cursor-pointer light:text-white py-2 mt-5">
-                {card.buttonText}
-              </button>
+              <Link to={`/careers/${card.slug}`}
+              className="hover:text-black bg-transparent text-center hover:bg-white border rounded-md text-[14px] cursor-pointer light:text-white py-2 mt-5"
+              >{card.buttonText}</Link>
             </div>
           ))}
         </div>

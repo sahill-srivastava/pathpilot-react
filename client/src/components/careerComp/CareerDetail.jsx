@@ -1,7 +1,22 @@
+import { useParams } from "react-router-dom"
+import Container from "../layout/Container";
+import InnerHeroSection from "../layout/InnerHeroSection";
+import { careerHeroSectionData } from "../../mockdata/career";
 
 const CareerDetail = () => {
+  const { slug } = useParams();
+  console.log(slug)
   return (
-    <div>CareerDetail</div>
+    <section>
+       <InnerHeroSection data={careerHeroSectionData} />
+      <Container
+        className="
+               my-15
+               flex flex-col items-center justify-center
+               "
+      >
+      </Container>
+    </section>
   )
 }
 
