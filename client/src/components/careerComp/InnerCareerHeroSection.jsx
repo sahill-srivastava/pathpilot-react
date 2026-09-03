@@ -3,7 +3,6 @@ import Container from "../layout/Container";
 import careerIllustration from "../../assets/career-illustration.png"
 
 const InnerCareerHeroSection = ({ data }) => {
-  console.log(data);
   const { eyebrow, title, subtitle, description, primaryCTA, secondaryCTA } =
     data;
   return (

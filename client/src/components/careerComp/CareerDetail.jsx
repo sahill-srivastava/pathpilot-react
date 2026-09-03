@@ -16,7 +16,7 @@ const CareerDetail = () => {
     <>
       <InnerCareerHeroSection data={role.hero} />
       <FactsBox data={role} />
-      <CareerOverview />
+      <CareerOverview data={role} />
     </>
   );
 };
