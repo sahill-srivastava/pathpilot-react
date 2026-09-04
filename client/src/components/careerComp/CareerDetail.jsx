@@ -4,6 +4,8 @@ import { careersData } from "../../mockdata/career";
 import InnerCareerHeroSection from "./InnerCareerHeroSection";
 import FactsBox from "./FactsBox";
 import CareerOverview from "./CareerOverview";
+import CareerInvolve from "./CareerInvolve";
+import CareerGrid from "./CareerGrid";
 
 const CareerDetail = () => {
   const { slug } = useParams();
@@ -16,7 +18,9 @@ const CareerDetail = () => {
     <>
       <InnerCareerHeroSection data={role.hero} />
       <FactsBox data={role} />
+      <CareerGrid data={role} />
       <CareerOverview data={role} />
+      <CareerInvolve data={role.whatItInvolves} />
     </>
   );
 };

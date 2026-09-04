@@ -1,8 +1,6 @@
 import Container from "../layout/Container";
 
 const CareerOverview = ({ data }) => {
-  console.log(data);
-
   const { title, overview } = data;
   return (
     <section>
