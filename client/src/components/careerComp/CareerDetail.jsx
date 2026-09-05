@@ -3,24 +3,23 @@ import { useParams } from "react-router-dom";
 import { careersData } from "../../mockdata/career";
 import InnerCareerHeroSection from "./InnerCareerHeroSection";
 import FactsBox from "./FactsBox";
-import CareerOverview from "./CareerOverview";
-import CareerInvolve from "./CareerInvolve";
-import CareerGrid from "./CareerGrid";
+import CareerRoadmap from "./CareerRoadmap";
 
 const CareerDetail = () => {
   const { slug } = useParams();
 
   const role = careersData.find((item) => item.slug === slug);
 
-  console.log("role: ", role);
+  // console.log("role: ", role);
 
   return (
     <>
       <InnerCareerHeroSection data={role.hero} />
       <FactsBox data={role} />
-      <CareerGrid data={role} />
-      <CareerOverview data={role} />
-      <CareerInvolve data={role.whatItInvolves} />
+      <CareerRoadmap data={role} />
+      {/* <CareerGrid data={role} /> */}
+      {/* <CareerOverview data={role} /> */}
+      {/* <CareerInvolve data={role.whatItInvolves} /> */}
     </>
   );
 };

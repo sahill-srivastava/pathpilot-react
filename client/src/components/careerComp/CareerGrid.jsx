@@ -1,7 +1,6 @@
 import Container from "../layout/Container";
 
 const CareerGrid = ({ data }) => {
-  console.log(data);
   const { title, overview, whatItInvolves, responsibilities, requiredSkills, toolsUsed } = data;
   return (
     <section>
