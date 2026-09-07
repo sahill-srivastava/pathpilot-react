@@ -4,6 +4,7 @@ import CareerInvolve from "./CareerInvolve";
 import { useState } from "react";
 import CareerResponsibilities from "./CareerResponsibilities";
 import CareerSkillsTools from "./CareerSkillsTools";
+import CareerLearningPath from "./CareerLearningPath";
 
 const CareerRoadmap = ({ data }) => {
   const [status, setStatus] = useState("overview");
@@ -13,13 +14,15 @@ const CareerRoadmap = ({ data }) => {
     involve: <CareerInvolve data={data} />,
     responsibilities: <CareerResponsibilities data={data} />,
     skills: <CareerSkillsTools data={data} />,
+    learningPath: <CareerLearningPath data={data} />,
   };
+
   return (
     <section>
       <Container
         className="
                         my-15  min-h-[700px]
-                          grid grid-cols-1 md:grid-cols-[30%_1fr] gap-0
+                          grid grid-cols-1 md:grid-cols-[25%_1fr] gap-0
                           "
       >
         <div className="bg-violet-700 rounded-l-2xl">
@@ -48,12 +51,16 @@ const CareerRoadmap = ({ data }) => {
             >
               Skill & Tools Used
             </li>
+            <li
+              onClick={() => setStatus("learningPath")}
+              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+            >
+              Learning Path
+            </li>
           </ul>
         </div>
         <div className="bg-zinc-800 rounded-r-2xl h-full w-full py-10">
           {allowedSections[status]}
-          {/* <CareerInvolve data={data} /> */}
-
         </div>
       </Container>
     </section>
