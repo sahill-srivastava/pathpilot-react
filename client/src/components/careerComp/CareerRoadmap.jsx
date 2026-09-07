@@ -2,6 +2,8 @@ import Container from "../layout/Container";
 import CareerOverview from "./CareerOverview";
 import CareerInvolve from "./CareerInvolve";
 import { useState } from "react";
+import CareerResponsibilities from "./CareerResponsibilities";
+import CareerSkillsTools from "./CareerSkillsTools";
 
 const CareerRoadmap = ({ data }) => {
   const [status, setStatus] = useState("overview");
@@ -9,6 +11,8 @@ const CareerRoadmap = ({ data }) => {
   const allowedSections = {
     overview: <CareerOverview data={data} />,
     involve: <CareerInvolve data={data} />,
+    responsibilities: <CareerResponsibilities data={data} />,
+    skills: <CareerSkillsTools data={data} />,
   };
   return (
     <section>
@@ -27,25 +31,29 @@ const CareerRoadmap = ({ data }) => {
               Career Overview
             </li>
             <li
-              onClick={() => {
-                  setStatus("involve");
-                  console.log(status);
-              }}
+              onClick={() => setStatus("involve")}
               className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
             >
               Career Involve
             </li>
             <li
-              onClick={() => setStatus("scope")}
+              onClick={() => setStatus("responsibilities")}
               className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
             >
-              Career Scope
+              Role & Responsibilities
+            </li>
+            <li
+              onClick={() => setStatus("skills")}
+              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+            >
+              Skill & Tools Used
             </li>
           </ul>
         </div>
         <div className="bg-zinc-800 rounded-r-2xl h-full w-full py-10">
           {allowedSections[status]}
           {/* <CareerInvolve data={data} /> */}
+
         </div>
       </Container>
     </section>
