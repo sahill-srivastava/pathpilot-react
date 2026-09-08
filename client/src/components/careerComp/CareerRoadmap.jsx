@@ -25,7 +25,7 @@ const CareerRoadmap = ({ data }) => {
                           grid grid-cols-1 md:grid-cols-[25%_1fr] gap-0
                           "
       >
-        <div className="bg-violet-700 rounded-l-2xl">
+        <div className="bg-violet-800 rounded-l-2xl">
           <ul className="w-full flex flex-col mt-10">
             <li
               onClick={() => setStatus("overview")}
