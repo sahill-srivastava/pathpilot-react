@@ -5,6 +5,7 @@ import { useState } from "react";
 import CareerResponsibilities from "./CareerResponsibilities";
 import CareerSkillsTools from "./CareerSkillsTools";
 import CareerLearningPath from "./CareerLearningPath";
+import CareerSalaryInsights from "./CareerSalaryInsights";
 
 const CareerRoadmap = ({ data }) => {
   const [status, setStatus] = useState("overview");
@@ -15,6 +16,7 @@ const CareerRoadmap = ({ data }) => {
     responsibilities: <CareerResponsibilities data={data} />,
     skills: <CareerSkillsTools data={data} />,
     learningPath: <CareerLearningPath data={data} />,
+    salaryInsights: <CareerSalaryInsights data={data} />,
   };
 
   return (
@@ -56,6 +58,12 @@ const CareerRoadmap = ({ data }) => {
               className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
             >
               Learning Path
+            </li>
+            <li
+              onClick={() => setStatus("salaryInsights")}
+              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+            >
+              Salary Insights
             </li>
           </ul>
         </div>

@@ -4,8 +4,6 @@ import { ArrowBigRight } from "lucide-react";
 
 const CareerLearningPath = ({ data }) => {
   const { learningPath } = data;
-  console.log(learningPath);
-  console.log(learningPath[0].level);
 
   return (
     <section className="h-full">
