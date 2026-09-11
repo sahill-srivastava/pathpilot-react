@@ -4,22 +4,17 @@ import { careersData } from "../../mockdata/career";
 import InnerCareerHeroSection from "./InnerCareerHeroSection";
 import FactsBox from "./FactsBox";
 import CareerRoadmap from "./CareerRoadmap";
+import CareerCta from "./CareerCta";
 
 const CareerDetail = () => {
   const { slug } = useParams();
-
   const role = careersData.find((item) => item.slug === slug);
-
-  // console.log("role: ", role);
-
   return (
     <>
       <InnerCareerHeroSection data={role.hero} />
       <FactsBox data={role} />
       <CareerRoadmap data={role} />
-      {/* <CareerGrid data={role} /> */}
-      {/* <CareerOverview data={role} /> */}
-      {/* <CareerInvolve data={role.whatItInvolves} /> */}
+      <CareerCta data={role} />
     </>
   );
 };

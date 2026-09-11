@@ -16,7 +16,7 @@ const CareerOverview = ({ data }) => {
         <div className="flex flex-col items-start">
           
           <h2 className="mb-2 text-2xl md:mb-2 light:text-white">What is {title}?</h2>
-          <p className="leading-8 text-lg">{overview}</p>
+          <p className="leading-8 text-white/90">{overview}</p>
         </div>
       </Container>
     </section>

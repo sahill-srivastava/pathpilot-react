@@ -1,7 +1,6 @@
 import Container from "../layout/Container";
 
 const CareerInvolve = ({ data }) => {
-  console.log(data)
   const { whatItInvolves } = data;
   return (
     <section>
@@ -15,7 +14,7 @@ const CareerInvolve = ({ data }) => {
           <h2 className="mb-2 text-2xl md:mb-2 light:text-white">
            What does this career involve?                                 
           </h2>
-          <p className="leading-8 text-lg">{whatItInvolves}</p>
+          <p className="leading-8 text-white/90">{whatItInvolves}</p>
         </div>
       </Container>
     </section>

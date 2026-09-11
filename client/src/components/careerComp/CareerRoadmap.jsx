@@ -6,6 +6,8 @@ import CareerResponsibilities from "./CareerResponsibilities";
 import CareerSkillsTools from "./CareerSkillsTools";
 import CareerLearningPath from "./CareerLearningPath";
 import CareerSalaryInsights from "./CareerSalaryInsights";
+import CareerRelatedRoadmaps from "./CareerRelatedRoadmaps";
+import CareerLearningPaths from "./CareerLearningPaths";
 
 const CareerRoadmap = ({ data }) => {
   const [status, setStatus] = useState("overview");
@@ -17,53 +19,67 @@ const CareerRoadmap = ({ data }) => {
     skills: <CareerSkillsTools data={data} />,
     learningPath: <CareerLearningPath data={data} />,
     salaryInsights: <CareerSalaryInsights data={data} />,
+    relatedRoadmaps: <CareerRelatedRoadmaps data={data} />,
+    learningPaths: <CareerLearningPaths data={data} />
   };
 
   return (
     <section>
       <Container
         className="
-                        my-15  min-h-[700px]
+                        my-15  min-h-fit
                           grid grid-cols-1 md:grid-cols-[25%_1fr] gap-0
                           "
       >
         <div className="bg-violet-800 rounded-l-2xl">
-          <ul className="w-full flex flex-col mt-10">
+          <ul className="w-full flex flex-col">
             <li
               onClick={() => setStatus("overview")}
-              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+              className="border-b-2 border-white p-4 cursor-pointer"
             >
               Career Overview
             </li>
             <li
               onClick={() => setStatus("involve")}
-              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+              className="border-b-2 border-white p-4 cursor-pointer"
             >
-              Career Involve
+              What You'll Do
             </li>
             <li
               onClick={() => setStatus("responsibilities")}
-              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+              className="border-b-2 border-white p-4 cursor-pointer"
             >
               Role & Responsibilities
             </li>
             <li
               onClick={() => setStatus("skills")}
-              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+              className="border-b-2 border-white p-4 cursor-pointer"
             >
               Skill & Tools Used
             </li>
             <li
               onClick={() => setStatus("learningPath")}
-              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+              className="border-b-2 border-white p-4 cursor-pointer"
             >
               Learning Path
             </li>
             <li
               onClick={() => setStatus("salaryInsights")}
-              className="border-b-2 border-white p-4 cursor-pointer hover:bg-violet-800"
+              className="border-b-2 border-white p-4 cursor-pointer"
             >
               Salary Insights
+            </li>
+            <li
+              onClick={() => setStatus("relatedRoadmaps")}
+              className="border-b-2 border-white p-4 cursor-pointer"
+            >
+              Related Roadmaps
+            </li>
+            <li
+              onClick={() => setStatus("learningPaths")}
+              className=" p-4 cursor-pointer"
+            >
+              Suggested Learning Paths
             </li>
           </ul>
         </div>

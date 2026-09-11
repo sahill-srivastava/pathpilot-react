@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Container from "./Container";
 
 const InnerHeroSection = ({ data }) => {
-  console.log("data: ", data)
   return (
     <section
       className={`hero_bg_color light:hero_bg_color_light md:h-[600px] `}
