@@ -38,7 +38,7 @@ const CareerSalaryInsights = ({ data }) => {
               <li>{entry}</li>
             </ul>
           </div>
-          <div className="h-full flex items-center justify-center">
+          <div className="h-full flex items-center justify-center rotate-90 md:rotate-0">
             <ArrowBigRight />
           </div>
           <div
@@ -57,7 +57,7 @@ const CareerSalaryInsights = ({ data }) => {
               <li>{mid}</li>
             </ul>
           </div>
-          <div className="h-full flex items-center justify-center">
+          <div className="h-full flex items-center justify-center rotate-90 md:rotate-0">
             <ArrowBigRight />
           </div>
           <div

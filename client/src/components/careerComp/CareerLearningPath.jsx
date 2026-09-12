@@ -24,7 +24,7 @@ const CareerLearningPath = ({ data }) => {
             w-full h-fit mt-[80px]
             grid grid-cols-1
             md:grid-cols-[1fr_auto_1fr_auto_1fr]
-            gap-4
+            gap-20 md:gap-4
           "
         >
           {learningPath.map((item, index) => {
@@ -53,7 +53,7 @@ const CareerLearningPath = ({ data }) => {
                 </div>
 
                 {index < learningPath.length - 1 && (
-                  <div className="h-full flex items-center justify-center">
+                  <div className="h-full flex items-center justify-center rotate-90 md:rotate-0">
                     <ArrowBigRight />
                   </div>
                 )}
