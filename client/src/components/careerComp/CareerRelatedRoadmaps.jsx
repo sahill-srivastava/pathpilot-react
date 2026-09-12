@@ -1,7 +1,6 @@
 import Container from "../layout/Container";
 
 const CareerRelatedRoadmaps = ({ data }) => {
-  console.log(data);
   const { relatedRoadmaps } = data;
   return (
     <section className="h-full">
