@@ -12,11 +12,11 @@ import { useSearchParams } from "react-router-dom";
 const CareerRoadmap = ({ data }) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const tab = searchParams.get("tab");
+  const tab = searchParams.get("tab") || "overview";
 
   const handleTabs = (tab) => {
     setSearchParams({
-      tab: tab || "overview",
+      tab: tab,
     });
   };
 
