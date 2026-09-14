@@ -10,6 +10,7 @@ import ProgressTracker from "../pages/ProgressTracker";
 import About from "../pages/About";
 import PageNotFound from "../pages/PageNotFound";
 import CareerDetail from "../components/careerComp/CareerDetail";
+import RoadmapDetail from "../components/roadmapComp/RoadmapDetail";
 
 const appRouter = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const appRouter = createBrowserRouter([
       {
         path: "roadmaps",
         element: <Roadmaps />,
+      },
+      {
+        path: "roadmaps/:slug",
+        element: <RoadmapDetail />,
       },
       {
         path: "quiz",

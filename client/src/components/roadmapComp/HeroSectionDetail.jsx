@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 import careerIllustration from "../../assets/career-illustration.png";
+import { Link } from "react-router-dom";
 
-const InnerCareerHeroSection = ({ data }) => {
+const HeroSectionDetail = ({ data }) => {
+  console.log(data.hero);
   const { eyebrow, title, subtitle, description, primaryCTA, secondaryCTA } =
-    data;
+    data.hero;
   return (
     <section
       className={`hero_bg_color light:hero_bg_color_light md:h-[600px] `}
@@ -38,4 +39,4 @@ const InnerCareerHeroSection = ({ data }) => {
   );
 };
 
-export default InnerCareerHeroSection;
+export default HeroSectionDetail;
