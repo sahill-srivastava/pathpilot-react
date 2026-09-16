@@ -3,7 +3,6 @@ import careerIllustration from "../../assets/career-illustration.png";
 import { Link } from "react-router-dom";
 
 const HeroSectionDetail = ({ data }) => {
-  console.log(data.hero);
   const { eyebrow, title, subtitle, description, primaryCTA, secondaryCTA } =
     data.hero;
   return (
