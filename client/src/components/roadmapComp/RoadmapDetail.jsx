@@ -3,6 +3,7 @@ import roadmapsData from "../../mockdata/roadmap";
 import HeroSectionDetail from "./HeroSectionDetail";
 import FactsBoxRoadmap from "./FactsBoxRoadmap";
 import OverviewSegment from "./OverviewSegment";
+import PhasesSegment from "./PhasesSegment";
 
 const RoadmapDetail = () => {
   const { slug } = useParams();
@@ -14,6 +15,7 @@ const RoadmapDetail = () => {
       <HeroSectionDetail data={role} />
       <FactsBoxRoadmap data={role} />
       <OverviewSegment data={role} />
+      <PhasesSegment data={role} />
     </>
   );
 };
