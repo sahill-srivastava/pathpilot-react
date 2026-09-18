@@ -9,7 +9,7 @@ const RoadmapDetail = () => {
   const { slug } = useParams();
 
   const role = roadmapsData.find((item) => item.slug === slug);
-  console.log(role);
+  // console.log(role);
   return (
     <>
       <HeroSectionDetail data={role} />
