@@ -4,18 +4,18 @@ import HeroSectionDetail from "./HeroSectionDetail";
 import FactsBoxRoadmap from "./FactsBoxRoadmap";
 import OverviewSegment from "./OverviewSegment";
 import PhasesSegment from "./PhasesSegment";
+import ProjectsRoadmap from "./ProjectsRoadmap";
 
 const RoadmapDetail = () => {
   const { slug } = useParams();
-
   const role = roadmapsData.find((item) => item.slug === slug);
-  // console.log(role);
   return (
     <>
       <HeroSectionDetail data={role} />
       <FactsBoxRoadmap data={role} />
       <OverviewSegment data={role} />
       <PhasesSegment data={role} />
+      <ProjectsRoadmap data={role} />
     </>
   );
 };

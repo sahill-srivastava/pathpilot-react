@@ -3,7 +3,6 @@ import Container from "../layout/Container";
 
 const PhasesSegment = ({ data }) => {
   const { phases } = data;
-  console.log(phases);
 
   return (
     <section>
