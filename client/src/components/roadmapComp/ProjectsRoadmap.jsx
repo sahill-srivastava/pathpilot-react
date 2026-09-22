@@ -98,6 +98,28 @@ const ProjectsRoadmap = ({ data }) => {
                     </p>
                 </div>
               </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full w-full rounded-2xl inset-shadow-[0_8px_25px_rgba(0,0,0,0.25)] inset-shadow-violet-700 py-5 px-7 flex flex-col gap-2.5">
+                    <h3 className="mt-3">Task Management App</h3>
+                    <p>Level: Intermediate</p>
+                    <p>Skills: React, Node.js, MongoDB</p>
+                    <p>
+                      Build a full-stack task application with authentication,
+                      CRUD operations, and a responsive frontend.
+                    </p>
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full w-full rounded-2xl inset-shadow-[0_8px_25px_rgba(0,0,0,0.25)] inset-shadow-violet-700 py-5 px-7 flex flex-col gap-2.5">
+                    <h3 className="mt-3">Task Management App</h3>
+                    <p>Level: Intermediate</p>
+                    <p>Skills: React, Node.js, MongoDB</p>
+                    <p>
+                      Build a full-stack task application with authentication,
+                      CRUD operations, and a responsive frontend.
+                    </p>
+                </div>
+              </SwiperSlide>
              
             </Swiper>
           </div>
