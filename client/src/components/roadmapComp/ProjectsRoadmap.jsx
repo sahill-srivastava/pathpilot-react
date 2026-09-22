@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import Container from "../layout/Container";
-import { ChevronLeft, ChevronRight, MoveRight, MoveUpRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const ProjectsRoadmap = ({ data }) => {
   const { projects } = data;
