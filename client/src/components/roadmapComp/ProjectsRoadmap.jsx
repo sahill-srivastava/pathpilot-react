@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper/modules";
 import Container from "../layout/Container";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, FolderCode } from "lucide-react";
 
 const ProjectsRoadmap = ({ data }) => {
   const { projects } = data;
@@ -34,10 +34,10 @@ const ProjectsRoadmap = ({ data }) => {
         </p>
         <div className="w-full relative my-15">
           <div className="absolute top-[50%] w-full flex justify-between">
-            <div className="prev_btn">
+            <div className="prev_btn cursor-pointer p-2 rounded-full">
               <ChevronLeft />
             </div>
-            <div className="next_btn">
+            <div className="next_btn cursor-pointer p-2 rounded-full">
               <ChevronRight />
             </div>
           </div>
@@ -46,81 +46,43 @@ const ProjectsRoadmap = ({ data }) => {
               modules={[Navigation, Autoplay]}
               navigation={{
                 prevEl: ".prev_btn",
-                nextEl: ".next-btn",
+                nextEl: ".next_btn",
               }}
-              // autoplay
-              slidesPerView={3}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+              }}
               spaceBetween={20}
               loop
               speed={600}
+              breakpoints={{
+                390: {
+                  slidesPerView: 1,
+                },
+
+                768: {
+                  slidesPerView: 3,
+                },
+              }}
             >
-              <SwiperSlide>
-                <div className="h-full w-full rounded-2xl inset-shadow-[0_8px_25px_rgba(0,0,0,0.25)] inset-shadow-violet-700 py-5 px-7 flex flex-col gap-2.5">
-                    <h3 className="mt-3">Task Management App</h3>
-                    <p>Level: Intermediate</p>
-                    <p>Skills: React, Node.js, MongoDB</p>
-                    <p>
-                      Build a full-stack task application with authentication,
-                      CRUD operations, and a responsive frontend.
-                    </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full w-full rounded-2xl inset-shadow-[0_8px_25px_rgba(0,0,0,0.25)] inset-shadow-violet-700 py-5 px-7 flex flex-col gap-2.5">
-                    <h3 className="mt-3">Task Management App</h3>
-                    <p>Level: Intermediate</p>
-                    <p>Skills: React, Node.js, MongoDB</p>
-                    <p>
-                      Build a full-stack task application with authentication,
-                      CRUD operations, and a responsive frontend.
-                    </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full w-full rounded-2xl inset-shadow-[0_8px_25px_rgba(0,0,0,0.25)] inset-shadow-violet-700 py-5 px-7 flex flex-col gap-2.5">
-                    <h3 className="mt-3">Task Management App</h3>
-                    <p>Level: Intermediate</p>
-                    <p>Skills: React, Node.js, MongoDB</p>
-                    <p>
-                      Build a full-stack task application with authentication,
-                      CRUD operations, and a responsive frontend.
-                    </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full w-full rounded-2xl inset-shadow-[0_8px_25px_rgba(0,0,0,0.25)] inset-shadow-violet-700 py-5 px-7 flex flex-col gap-2.5">
-                    <h3 className="mt-3">Task Management App</h3>
-                    <p>Level: Intermediate</p>
-                    <p>Skills: React, Node.js, MongoDB</p>
-                    <p>
-                      Build a full-stack task application with authentication,
-                      CRUD operations, and a responsive frontend.
-                    </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full w-full rounded-2xl inset-shadow-[0_8px_25px_rgba(0,0,0,0.25)] inset-shadow-violet-700 py-5 px-7 flex flex-col gap-2.5">
-                    <h3 className="mt-3">Task Management App</h3>
-                    <p>Level: Intermediate</p>
-                    <p>Skills: React, Node.js, MongoDB</p>
-                    <p>
-                      Build a full-stack task application with authentication,
-                      CRUD operations, and a responsive frontend.
-                    </p>
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full w-full rounded-2xl inset-shadow-[0_8px_25px_rgba(0,0,0,0.25)] inset-shadow-violet-700 py-5 px-7 flex flex-col gap-2.5">
-                    <h3 className="mt-3">Task Management App</h3>
-                    <p>Level: Intermediate</p>
-                    <p>Skills: React, Node.js, MongoDB</p>
-                    <p>
-                      Build a full-stack task application with authentication,
-                      CRUD operations, and a responsive frontend.
-                    </p>
-                </div>
-              </SwiperSlide>
-             
+              {projects.map((p, index) => {
+                const { title, level, skills, description } = p;
+                return (
+                  <SwiperSlide key={index}>
+                    <div className="card_bg_gradient h-[380px] rounded-2xl p-6 flex flex-col gap-2">
+                      <div className="bg-violet-600 h-[50px] w-[50px] flex items-center justify-center rounded-full ">
+                        <FolderCode />
+                      </div>
+                      <div className="mt-5 flex flex-col gap-3">
+                        <h3 className="mt-3 text-xl">{title}</h3>
+                        <p className="text-violet-500 italic">{level}</p>
+                        <p>{skills.join(" • ")}</p>
+                        <p className="mt-3">{description}..</p>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
           </div>
         </div>
