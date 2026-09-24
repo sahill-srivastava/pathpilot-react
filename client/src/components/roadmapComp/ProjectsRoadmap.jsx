@@ -9,7 +9,6 @@ import { ChevronLeft, ChevronRight, FolderCode } from "lucide-react";
 
 const ProjectsRoadmap = ({ data }) => {
   const { projects } = data;
-  console.log(projects);
 
   return (
     <section>

@@ -5,6 +5,7 @@ import FactsBoxRoadmap from "./FactsBoxRoadmap";
 import OverviewSegment from "./OverviewSegment";
 import PhasesSegment from "./PhasesSegment";
 import ProjectsRoadmap from "./ProjectsRoadmap";
+import RecommendedResources from "./RecommendedResources";
 
 const RoadmapDetail = () => {
   const { slug } = useParams();
@@ -16,6 +17,7 @@ const RoadmapDetail = () => {
       <OverviewSegment data={role} />
       <PhasesSegment data={role} />
       <ProjectsRoadmap data={role} />
+      <RecommendedResources data={role} />
     </>
   );
 };
