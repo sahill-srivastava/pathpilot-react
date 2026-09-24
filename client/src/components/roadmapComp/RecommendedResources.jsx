@@ -4,7 +4,6 @@ import Resources from "../../assets/resources.png"
 
 const RecommendedResources = ({ data }) => {
   const { recommendedResources } = data;
-  console.log(recommendedResources);
   return (
     <section>
       <Container
