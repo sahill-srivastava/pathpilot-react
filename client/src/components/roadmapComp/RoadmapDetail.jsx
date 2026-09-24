@@ -7,6 +7,7 @@ import PhasesSegment from "./PhasesSegment";
 import ProjectsRoadmap from "./ProjectsRoadmap";
 import RecommendedResources from "./RecommendedResources";
 import EstimatedTimeline from "./EstimatedTimeline";
+import RoadmapCta from "./RoadmapCta";
 
 const RoadmapDetail = () => {
   const { slug } = useParams();
@@ -20,6 +21,7 @@ const RoadmapDetail = () => {
       <ProjectsRoadmap data={role} />
       <RecommendedResources data={role} />
       <EstimatedTimeline data={role} />
+      <RoadmapCta data={role} />
     </>
   );
 };

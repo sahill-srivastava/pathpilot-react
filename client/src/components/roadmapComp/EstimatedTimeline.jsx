@@ -2,13 +2,13 @@ import { Circle } from "lucide-react";
 import Container from "../layout/Container";
 
 const EstimatedTimeline = ({ data }) => {
-   const { phase1, phase2, phase3, phase4, total } = data.estimatedTimeline;
-   console.log(data.estimatedTimeline)
+  const { phase1, phase2, phase3, phase4, total } = data.estimatedTimeline;
+  console.log(data);
 
-   const removeWord = (phase) => {
-    const [range] = phase.split(" ")
+  const removeWord = (phase) => {
+    const [range] = phase.split(" ");
     return range;
-   }
+  };
   return (
     <section>
       <Container
