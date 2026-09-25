@@ -1,14 +1,25 @@
 import { Search } from "lucide-react";
 import { useState } from "react";
 
-const SearchCareer = ({ filterCareerData }) => {
+const SearchBox = ({ data, setResult }) => {
   const [query, setQuery] = useState("");
+
+  const searchData = (value) => {
+    const query = value.toLowerCase().trim().replace(/\s+/g, " ");
+
+    const result = data.filter((item) => {
+      return item.title.toLowerCase().includes(query);
+    });
+
+    setResult(result);
+    return result;
+  };
 
   const handleSearch = (e) => {
     const value = e.target.value;
     setQuery(value);
-    filterCareerData(value)
-  }
+    searchData(value);
+  };
 
   return (
     <div className="w-full flex items-center bg-white/90  h-[40px] md:h-[50px] rounded-4xl border border-2 border-violet-600">
@@ -26,4 +37,4 @@ const SearchCareer = ({ filterCareerData }) => {
   );
 };
 
-export default SearchCareer;
+export default SearchBox;

@@ -1,13 +1,12 @@
 import { useSelector } from "react-redux";
-import { careersData } from "../../mockdata/career";
 import Container from "../layout/Container";
-import SearchCareer from "./SearchCareer";
+import SearchBox from "../layout/SearchBox";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const CareerCards = () => {
+const CareerCards = ({data}) => {
   const theme = useSelector((store) => store.config.defaultTheme);
-  const [ result, setResult] = useState([...careersData])
+  const [result, setResult] = useState([...data]);
 
   const careersDataClass = `
             ${theme === "light" ? "card_bg_gradient" : "card_bg_gradient"}
@@ -15,51 +14,9 @@ const CareerCards = () => {
             flex flex-col gap-4 justify-between
             `;
 
-  // const debounce = (fn, delay) => {
-
-  //   let timer;
-
-  //   return function(...args) {
-
-  //     clearTimeout(timer);
-
-  //     timer = setTimeout(() => {
-  //       fn(...args)
-  //     }, delay)
-  //   }
-  // };
-
-  const filterCareerData = (value) => {
-    const query = value.toLowerCase().trim().replace(/\s+/g, " ");
-
-
-
-    //check title
-    const result = careersData.filter((item) => {
-      // console.log(item.title.toLowerCase())
-      return item.title.toLowerCase().includes(query);
-    });
-
-
-
-    setResult(result)
-
-    return result;
-  };
-
-  //dbounce query
-  // const debouncedFilter = debounce(filterCareerData, 100)
-
-  // console.log(debouncedFilter)
-
   return (
     <section>
-      <Container
-        className="
-               my-15
-               flex flex-col items-center justify-center
-               "
-      >
+      <Container className="my-15 flex flex-col items-center justify-center">
         <div className="w-full">
           <div className="container relative overflow-hidden">
             <div className="mb-4 ms-4 flex flex-nowrap items-center gap-2 text-[13px] overflow-x-auto scrollbar-none">
@@ -80,7 +37,7 @@ const CareerCards = () => {
               </ul>
             </div>
           </div>
-          <SearchCareer filterCareerData={filterCareerData} />
+          <SearchBox data={data} setResult={setResult} />
         </div>
 
         <div
@@ -90,23 +47,27 @@ const CareerCards = () => {
                    md:grid-cols-3
                    "
         >
-          {result && result.map((card) => (
-            <div key={card.id} className={careersDataClass}>
-              <div className="flex flex-col gap-3 ">
-                <h3 className="text-xl mt-10 mb-5 font-medium light:text-white">
-                  {card.title}
-                </h3>
-                <p className="light:text-white">
-                  Difficulty: {card.difficulty}
-                </p>
-                <p className="light:text-white">Duration: {card.duration}</p>
-                <p className="light:text-white">{card.desc}</p>
+          {result &&
+            result.map((card) => (
+              <div key={card.id} className={careersDataClass}>
+                <div className="flex flex-col gap-3 ">
+                  <h3 className="text-xl mt-10 mb-5 font-medium light:text-white">
+                    {card.title}
+                  </h3>
+                  <p className="light:text-white">
+                    Difficulty: {card.difficulty}
+                  </p>
+                  <p className="light:text-white">Duration: {card.duration}</p>
+                  <p className="light:text-white">{card.desc}</p>
+                </div>
+                <Link
+                  to={`/careers/${card.slug}`}
+                  className="hover:text-black bg-transparent text-center hover:bg-white border rounded-md text-[14px] cursor-pointer light:text-white py-2 mt-5"
+                >
+                  {card.buttonText}
+                </Link>
               </div>
-              <Link to={`/careers/${card.slug}`}
-              className="hover:text-black bg-transparent text-center hover:bg-white border rounded-md text-[14px] cursor-pointer light:text-white py-2 mt-5"
-              >{card.buttonText}</Link>
-            </div>
-          ))}
+            ))}
         </div>
       </Container>
     </section>

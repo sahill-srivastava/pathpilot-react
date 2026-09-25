@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
 import Container from "../layout/Container";
 import { Link } from "react-router-dom";
+import SearchBox from "../layout/SearchBox";
+import { useState } from "react";
 
 const CardsRoadmap = ({ data }) => {
   const theme = useSelector((store) => store.config.defaultTheme);
+   const [ result, setResult] = useState([...data])
 
   const careersDataClass = `
             ${theme === "light" ? "card_bg_gradient" : "card_bg_gradient"}
@@ -19,6 +22,28 @@ const CardsRoadmap = ({ data }) => {
                flex flex-col items-center justify-center
                "
       >
+        <div className="w-full">
+          <div className="container relative overflow-hidden">
+            <div className="mb-4 ms-4 flex flex-nowrap items-center gap-2 text-[13px] overflow-x-auto scrollbar-none">
+              <strong>Popular:</strong>
+              <ul className="ms-2 flex gap-2">
+                <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
+                  Web Development
+                </li>
+                <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
+                  Data
+                </li>
+                <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
+                  Design
+                </li>
+                <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
+                  AI
+                </li>
+              </ul>
+            </div>
+          </div>
+         <SearchBox data={data} setResult={setResult} />
+        </div>
         <div
           className="
                    w-full my-15
@@ -26,8 +51,8 @@ const CardsRoadmap = ({ data }) => {
                    md:grid-cols-3
                    "
         >
-          {data &&
-            data.map((card) => (
+          {result &&
+            result.map((card) => (
               <div key={card.id} className={careersDataClass}>
                 <div className="flex flex-col gap-3 ">
                   <h3 className="text-xl mt-10 mb-5 font-medium light:text-white">
