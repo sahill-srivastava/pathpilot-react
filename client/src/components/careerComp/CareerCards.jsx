@@ -19,7 +19,7 @@ const CareerCards = ({data}) => {
       <Container className="my-15 flex flex-col items-center justify-center">
         <div className="w-full">
           <div className="container relative overflow-hidden">
-            <div className="mb-4 ms-4 flex flex-nowrap items-center gap-2 text-[13px] overflow-x-auto scrollbar-none">
+            {/* <div className="mb-4 ms-4 flex flex-nowrap items-center gap-2 text-[13px] overflow-x-auto scrollbar-none">
               <strong>Popular:</strong>
               <ul className="ms-2 flex gap-2">
                 <li className="px-6 py-1 flex shrink-0 items-center justify-center border border border-violet-600 rounded-4xl hover:bg-zinc-800 cursor-pointer">
@@ -35,7 +35,7 @@ const CareerCards = ({data}) => {
                   AI
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
           <SearchBox data={data} setResult={setResult} />
         </div>
