@@ -27,11 +27,17 @@ const InnerHeroSection = ({ data }) => {
             {data.heading.suffixText}
           </h1>
           {data.description.map((item, index) => (
-            <p className="md:text-lg light:text-white" key={index}>{item}</p>
+            <p className="md:text-lg light:text-white" key={index}>
+              {item}
+            </p>
           ))}
           <div className="mt-5 md:mt-10 flex gap-6">
             {data.buttons.map((button) => (
-              <Link to={button.buttonUrl} className={`${button.variant} px-3 py-2.5`} key={button.id}>
+              <Link
+                to={button.buttonUrl}
+                className={`${button.class} px-3 py-2.5`}
+                key={button.id}
+              >
                 {button.buttonText}
               </Link>
             ))}

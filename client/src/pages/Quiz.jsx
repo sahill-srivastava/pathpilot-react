@@ -1,6 +1,12 @@
-export default function Quiz () {
+import HeroSectionQuiz from "../components/quizComp/HeroSectionQuiz"
 
-    return (
-        <div>Quiz</div>
-    )
+
+const Quiz = () => {
+  return (
+    <>
+    <HeroSectionQuiz />
+    </>
+  )
 }
+
+export default Quiz
