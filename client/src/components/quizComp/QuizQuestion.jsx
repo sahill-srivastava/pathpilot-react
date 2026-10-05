@@ -1,27 +1,37 @@
 import { useState } from "react";
 
-const QuizQuestion = ({data}) => {
+const QuizQuestion = ({ data }) => {
   const [selected, setSelected] = useState();
-  console.log(data)
+  // console.log(selected);
+  const { id, question, options } = data;
+  // console.log(id)
   return (
-    <div className="w-full">
-      <h4 className="mb-5 text-2xl font-medium">What is Frontend Developer?</h4>
+    <div className="w-full p-2" key={id}>
+      <h2 className="text-center mb-10 text-4xl">Question {id}/ 10</h2>
+
+      <h4 className="mb-5 text-2xl font-medium">{question}</h4>
 
       <div className="flex flex-col gap-3">
-
-        <label className="w-full bg-black/20 p-2 rounded-sm flex justify-between cursor-pointer">
-          <span>Frontend</span>
-          <input
-            type="radio"
-            name="career"
-            value="frontend"
-            checked={selected === "frontend"}
-            onChange={(e) => setSelected(e.target.value)}
-            className="accent-red-700"
-          />
-        </label>
-       
-      
+        {options.map((o) => {
+          const { id, text } = o;
+          return (
+            <label
+              key={id}
+              className={`w-full bg-black/20 p-2 rounded-sm flex justify-between cursor-pointer
+              ${selected === id ? "bg-white text-black" : " border-transparent"}`}
+            >
+              <span className="w-full text-center">{text}</span>
+              <input
+                type="radio"
+                className="sr-only"
+                name="career"
+                value={id}
+                checked={selected === id}
+                onChange={(e) => setSelected(e.target.value)}
+              />
+            </label>
+          );
+        })}
       </div>
     </div>
   );
