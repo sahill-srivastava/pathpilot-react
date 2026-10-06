@@ -9,8 +9,38 @@ import { quizData } from "../../mockdata/quizQuesAns";
 import { useState } from "react";
 
 const QuizSegment = () => {
-  const [visibleQuestionId, setVisibleQuestionId] = useState(1)
+  const [selected, setSelected] = useState("");
+  const [visibleQuestionId, setVisibleQuestionId] = useState(1);
+  // const [answer, setAnswer] = useState("")
 
+  const pointsTable = [];
+
+
+
+  const handlePoints = (answer) => {
+    console.log(answer)
+    console.log(pointsTable)
+
+
+    pointsTable.push(answer)
+
+    console.log(pointsTable)
+
+
+  }
+
+  const handleAnswers = () => {
+
+    const target = quizData.find((item) => (item.id = visibleQuestionId - 1));
+
+    const option = target.options.find(item => item.id === selected)
+
+    console.log(option.career);
+    // setAnswer(option.career)
+    handlePoints(option.career);
+
+    return;
+  };
 
   return (
     <section>
@@ -31,23 +61,29 @@ const QuizSegment = () => {
                 prevEl: ".back-btn",
                 nextEl: ".next-btn",
               }}
-              onSlideChange={(swiper) => setVisibleQuestionId(swiper.activeIndex + 1)}
+              onSlideChange={(swiper) =>
+                setVisibleQuestionId(swiper.activeIndex + 1)
+              }
             >
               {quizData.map((q) => {
                 // console.log(q)
-                
+
                 return (
-                  <SwiperSlide id={q.id} >
-                    <QuizQuestion data={q} />
+                  <SwiperSlide id={q.id}>
+                    <QuizQuestion data={q} selected={selected} setSelected={setSelected} />
                   </SwiperSlide>
                 );
               })}
             </Swiper>
             <div className="w-full flex justify-between mt-6">
-              <button className={`back-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer ${visibleQuestionId === 1 ? "opacity-0" : " opacity-100"}`}>
+              <button
+                className={`back-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer ${visibleQuestionId === 1 ? "opacity-0" : " opacity-100"}`}
+              >
                 <ArrowLeft /> Back
               </button>
-              <button className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer">
+              <button className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
+              onClick={handleAnswers}
+              >
                 {visibleQuestionId === 10 ? "Submit" : "Next"} <ArrowRight />
               </button>
             </div>

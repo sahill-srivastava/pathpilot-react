@@ -1,10 +1,10 @@
-import { useState } from "react";
 
-const QuizQuestion = ({ data }) => {
-  const [selected, setSelected] = useState();
-  // console.log(selected);
+const QuizQuestion = ({ data, selected, setSelected }) => {
+
   const { id, question, options } = data;
-  // console.log(id)
+
+
+
   return (
     <div className="w-full p-2" key={id}>
       <h2 className="text-center mb-10 text-4xl">Question {id}/ 10</h2>
