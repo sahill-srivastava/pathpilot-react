@@ -9,17 +9,30 @@ import { useRef, useState } from "react";
 
 const QuizSegment = () => {
   const [selected, setSelected] = useState(false); //true/false
-  const [selectedOption, setSelectedOption] = useState(null) //A,B,C,D
-  const [answer, setAnswer] = useState(null) //A,B,C,D
+  const [selectedOption, setSelectedOption] = useState(null); //A,B,C,D
+  const [answer, setAnswer] = useState(null); //A,B,C,D
   const [isSelected, setIsSelected] = useState(false); //for error
   const [activeIndex, setActiveIndex] = useState(0); //
   const swiperRef = useRef(null);
 
-
   const reset = () => {
-     setSelected(false)
-     setSelectedOption(null)
-  }
+    setSelected(false);
+    setSelectedOption(null);
+  };
+
+  const handleNextClick = () => {
+    if (!selected) {
+      setIsSelected(true);
+      setTimeout(() => {
+        setIsSelected(false);
+      }, 2500);
+      return;
+    }
+    swiperRef.current.slideNext();
+    reset();
+    console.log(selectedOption);
+    console.log(answer);
+  };
 
   return (
     <section>
@@ -32,7 +45,7 @@ const QuizSegment = () => {
         <div className="w-[600px] bg-violet-700 rounded-2xl p-4">
           <div>
             <Swiper
-              modules={[ Autoplay]}
+              modules={[Autoplay]}
               slidesPerView={1}
               spaceBetween={20}
               loop={false}
@@ -69,22 +82,9 @@ const QuizSegment = () => {
               </button>
               <button
                 className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
-                onClick={() => {
-                  if (!selected) {
-                    setIsSelected(true);
-                    setTimeout(() => {
-                      setIsSelected(false);
-                    }, 2500);
-                    return;
-                  }
-                  swiperRef.current.slideNext();
-                  reset();
-                  console.log(selectedOption)
-                  console.log(answer)
-                 
-                }}
+                onClick={handleNextClick}
               >
-                Next <ArrowRight />
+             {activeIndex === 9 ? "Submit" : "Next"} <ArrowRight />
               </button>
             </div>
             <p
