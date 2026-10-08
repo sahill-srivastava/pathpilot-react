@@ -8,34 +8,30 @@ import "swiper/css/navigation";
 import { quizData } from "../../mockdata/quizQuesAns";
 import { useState } from "react";
 
+const pointsTable = [];
+
 const QuizSegment = () => {
   const [selected, setSelected] = useState("");
   const [visibleQuestionId, setVisibleQuestionId] = useState(1);
   // const [answer, setAnswer] = useState("")
 
-  const pointsTable = [];
-
-
+  console.log(quizData)
 
   const handlePoints = (answer) => {
-    console.log(answer)
-    console.log(pointsTable)
+    console.log(answer);
+    console.log(pointsTable);
 
+    pointsTable.push(answer);
 
-    pointsTable.push(answer)
-
-    console.log(pointsTable)
-
-
-  }
+    console.log(pointsTable);
+  };
 
   const handleAnswers = () => {
-
     const target = quizData.find((item) => (item.id = visibleQuestionId - 1));
 
-    const option = target.options.find(item => item.id === selected)
+    const option = target.options.find((item) => item.id === selected);
 
-    console.log(option.career);
+    // console.log(option.career);
     // setAnswer(option.career)
     handlePoints(option.career);
 
@@ -66,11 +62,15 @@ const QuizSegment = () => {
               }
             >
               {quizData.map((q) => {
-                // console.log(q)
+                console.log(q)
 
                 return (
                   <SwiperSlide id={q.id}>
-                    <QuizQuestion data={q} selected={selected} setSelected={setSelected} />
+                    <QuizQuestion
+                      data={q}
+                      selected={selected}
+                      setSelected={setSelected}
+                    />
                   </SwiperSlide>
                 );
               })}
@@ -81,8 +81,9 @@ const QuizSegment = () => {
               >
                 <ArrowLeft /> Back
               </button>
-              <button className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
-              onClick={handleAnswers}
+              <button
+                className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
+                onClick={handleAnswers}
               >
                 {visibleQuestionId === 10 ? "Submit" : "Next"} <ArrowRight />
               </button>

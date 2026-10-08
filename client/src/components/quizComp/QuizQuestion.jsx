@@ -1,13 +1,13 @@
 
 const QuizQuestion = ({ data, selected, setSelected }) => {
 
-  const { id, question, options } = data;
+  const { id: dataId, question, options } = data;
 
 
 
   return (
-    <div className="w-full p-2" key={id}>
-      <h2 className="text-center mb-10 text-4xl">Question {id}/ 10</h2>
+    <div className="w-full p-2" key={dataId}>
+      <h2 className="text-center mb-10 text-4xl">Question {dataId}/ 10</h2>
 
       <h4 className="mb-5 text-2xl font-medium">{question}</h4>
 
