@@ -2,41 +2,24 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import Container from "../layout/Container";
 import QuizQuestion from "./QuizQuestion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/navigation";
 import { quizData } from "../../mockdata/quizQuesAns";
-import { useState } from "react";
-
-const pointsTable = [];
+import { useRef, useState } from "react";
 
 const QuizSegment = () => {
-  const [selected, setSelected] = useState("");
-  const [visibleQuestionId, setVisibleQuestionId] = useState(1);
-  // const [answer, setAnswer] = useState("")
+  const [selected, setSelected] = useState(false); //true/false
+  const [selectedOption, setSelectedOption] = useState(null) //A,B,C,D
+  const [answer, setAnswer] = useState(null) //A,B,C,D
+  const [isSelected, setIsSelected] = useState(false); //for error
+  const [activeIndex, setActiveIndex] = useState(0); //
+  const swiperRef = useRef(null);
 
-  console.log(quizData)
 
-  const handlePoints = (answer) => {
-    console.log(answer);
-    console.log(pointsTable);
-
-    pointsTable.push(answer);
-
-    console.log(pointsTable);
-  };
-
-  const handleAnswers = () => {
-    const target = quizData.find((item) => (item.id = visibleQuestionId - 1));
-
-    const option = target.options.find((item) => item.id === selected);
-
-    // console.log(option.career);
-    // setAnswer(option.career)
-    handlePoints(option.career);
-
-    return;
-  };
+  const reset = () => {
+     setSelected(false)
+     setSelectedOption(null)
+  }
 
   return (
     <section>
@@ -49,27 +32,29 @@ const QuizSegment = () => {
         <div className="w-[600px] bg-violet-700 rounded-2xl p-4">
           <div>
             <Swiper
-              modules={[Navigation, Autoplay]}
+              modules={[ Autoplay]}
               slidesPerView={1}
               spaceBetween={20}
               loop={false}
-              navigation={{
-                prevEl: ".back-btn",
-                nextEl: ".next-btn",
+              allowTouchMove={false}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                setActiveIndex(swiper.activeIndex);
               }}
-              onSlideChange={(swiper) =>
-                setVisibleQuestionId(swiper.activeIndex + 1)
-              }
+              onSlideChange={(swiper) => {
+                setActiveIndex(swiper.activeIndex);
+              }}
             >
               {quizData.map((q) => {
-                console.log(q)
-
                 return (
-                  <SwiperSlide id={q.id}>
+                  <SwiperSlide>
                     <QuizQuestion
                       data={q}
                       selected={selected}
                       setSelected={setSelected}
+                      selectedOption={selectedOption}
+                      setSelectedOption={setSelectedOption}
+                      setAnswer={setAnswer}
                     />
                   </SwiperSlide>
                 );
@@ -77,17 +62,36 @@ const QuizSegment = () => {
             </Swiper>
             <div className="w-full flex justify-between mt-6">
               <button
-                className={`back-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer ${visibleQuestionId === 1 ? "opacity-0" : " opacity-100"}`}
+                className={`back-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer ${activeIndex === 0 ? "opacity-0" : " opacity-100"} `}
+                onClick={() => swiperRef.current.slidePrev()}
               >
                 <ArrowLeft /> Back
               </button>
               <button
                 className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
-                onClick={handleAnswers}
+                onClick={() => {
+                  if (!selected) {
+                    setIsSelected(true);
+                    setTimeout(() => {
+                      setIsSelected(false);
+                    }, 2500);
+                    return;
+                  }
+                  swiperRef.current.slideNext();
+                  reset();
+                  console.log(selectedOption)
+                  console.log(answer)
+                 
+                }}
               >
-                {visibleQuestionId === 10 ? "Submit" : "Next"} <ArrowRight />
+                Next <ArrowRight />
               </button>
             </div>
+            <p
+              className={`${isSelected ? "block" : "hidden"} text-sm text-red-600 mt-6`}
+            >
+              Please select an option...
+            </p>
           </div>
         </div>
       </Container>
