@@ -1,10 +1,18 @@
-
-const QuizQuestion = ({ data, setSelected, selectedOption, setSelectedOption, setAnswer }) => {
-  
-
+const QuizQuestion = ({
+  data,
+  setSelected,
+  selectedOption,
+  setSelectedOption,
+  setAnswer,
+}) => {
   const { id, question, options } = data;
 
-
+  const handleInput = (e) => {
+    setSelectedOption(e.target.value);
+    const targetAnswerObj = options.find((item) => item.id === e.target.value);
+    setAnswer((prevAns) => [...prevAns, targetAnswerObj.career]);
+    setSelected(true);
+  };
 
   return (
     <div className="w-full p-2" key={id}>
@@ -28,12 +36,7 @@ const QuizQuestion = ({ data, setSelected, selectedOption, setSelectedOption, se
                 name="career"
                 value={optionId}
                 checked={selectedOption === optionId}
-                onChange={(e) => {
-                  setSelectedOption(e.target.value)
-                  const targetAnswerObj = options.find(item => item.id === e.target.value)
-                  setAnswer(targetAnswerObj.career)
-                  setSelected(true)
-                }}
+                onChange={handleInput}
               />
             </label>
           );

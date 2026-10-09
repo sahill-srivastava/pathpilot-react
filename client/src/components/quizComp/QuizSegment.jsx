@@ -10,7 +10,7 @@ import { useRef, useState } from "react";
 const QuizSegment = () => {
   const [selected, setSelected] = useState(false); //true/false
   const [selectedOption, setSelectedOption] = useState(null); //A,B,C,D
-  const [answer, setAnswer] = useState(null); //A,B,C,D
+  const [answer, setAnswer] = useState([]); //frontend, backend
   const [isSelected, setIsSelected] = useState(false); //for error
   const [activeIndex, setActiveIndex] = useState(0); //
   const swiperRef = useRef(null);
@@ -18,6 +18,20 @@ const QuizSegment = () => {
   const reset = () => {
     setSelected(false);
     setSelectedOption(null);
+  };
+
+  const handleOutput = () => {
+    console.log(answer);
+    const scoreboard = {};
+
+    for (const item of answer) {
+      if (scoreboard[item]) {
+        scoreboard[item] += 1;
+      } else {
+        scoreboard[item] = 1;
+      }
+    }
+    console.log("scoreboard :", scoreboard);
   };
 
   const handleNextClick = () => {
@@ -29,9 +43,11 @@ const QuizSegment = () => {
       return;
     }
     swiperRef.current.slideNext();
-    reset();
-    console.log(selectedOption);
-    console.log(answer);
+    reset(); //reset values
+    if (activeIndex === 9) {
+      handleOutput();
+    }
+    // console.log(answer);
   };
 
   return (
@@ -84,7 +100,7 @@ const QuizSegment = () => {
                 className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
                 onClick={handleNextClick}
               >
-             {activeIndex === 9 ? "Submit" : "Next"} <ArrowRight />
+                {activeIndex === 9 ? "Submit" : "Next"} <ArrowRight />
               </button>
             </div>
             <p
