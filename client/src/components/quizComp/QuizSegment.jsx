@@ -6,6 +6,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { quizData } from "../../mockdata/quizQuesAns";
 import { useRef, useState } from "react";
+import Loader from "../layout/Loader";
 
 const QuizSegment = () => {
   const [selected, setSelected] = useState(false); //true/false
@@ -13,12 +14,18 @@ const QuizSegment = () => {
   const [answer, setAnswer] = useState([]); //frontend, backend
   const [isSelected, setIsSelected] = useState(false); //for error
   const [activeIndex, setActiveIndex] = useState(0); //
+  const [showLoader, setShowLoader] = useState(false);
   const swiperRef = useRef(null);
 
   const reset = () => {
     setSelected(false);
     setSelectedOption(null);
   };
+
+  const showResult = (scores) => {
+    console.log("scoreboard :", scores);
+
+  }
 
   const handleOutput = () => {
     console.log(answer);
@@ -31,7 +38,7 @@ const QuizSegment = () => {
         scoreboard[item] = 1;
       }
     }
-    console.log("scoreboard :", scoreboard);
+    showResult(scoreboard)
   };
 
   const handleNextClick = () => {
@@ -45,6 +52,7 @@ const QuizSegment = () => {
     swiperRef.current.slideNext();
     reset(); //reset values
     if (activeIndex === 9) {
+      setShowLoader(true);
       handleOutput();
     }
     // console.log(answer);
@@ -59,56 +67,60 @@ const QuizSegment = () => {
                           "
       >
         <div className="w-[600px] bg-violet-700 rounded-2xl p-4">
-          <div>
-            <Swiper
-              modules={[Autoplay]}
-              slidesPerView={1}
-              spaceBetween={20}
-              loop={false}
-              allowTouchMove={false}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-                setActiveIndex(swiper.activeIndex);
-              }}
-              onSlideChange={(swiper) => {
-                setActiveIndex(swiper.activeIndex);
-              }}
-            >
-              {quizData.map((q) => {
-                return (
-                  <SwiperSlide>
-                    <QuizQuestion
-                      data={q}
-                      selected={selected}
-                      setSelected={setSelected}
-                      selectedOption={selectedOption}
-                      setSelectedOption={setSelectedOption}
-                      setAnswer={setAnswer}
-                    />
-                  </SwiperSlide>
-                );
-              })}
-            </Swiper>
-            <div className="w-full flex justify-between mt-6">
-              <button
-                className={`back-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer ${activeIndex === 0 ? "opacity-0" : " opacity-100"} `}
-                onClick={() => swiperRef.current.slidePrev()}
+          {showLoader ? (
+            <Loader />
+          ) : (
+            <div>
+              <Swiper
+                modules={[Autoplay]}
+                slidesPerView={1}
+                spaceBetween={20}
+                loop={false}
+                allowTouchMove={false}
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
+                  setActiveIndex(swiper.activeIndex);
+                }}
+                onSlideChange={(swiper) => {
+                  setActiveIndex(swiper.activeIndex);
+                }}
               >
-                <ArrowLeft /> Back
-              </button>
-              <button
-                className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
-                onClick={handleNextClick}
+                {quizData.map((q) => {
+                  return (
+                    <SwiperSlide>
+                      <QuizQuestion
+                        data={q}
+                        selected={selected}
+                        setSelected={setSelected}
+                        selectedOption={selectedOption}
+                        setSelectedOption={setSelectedOption}
+                        setAnswer={setAnswer}
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+              <div className="w-full flex justify-between mt-6">
+                <button
+                  className={`back-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer ${activeIndex === 0 ? "opacity-0" : " opacity-100"} `}
+                  onClick={() => swiperRef.current.slidePrev()}
+                >
+                  <ArrowLeft /> Back
+                </button>
+                <button
+                  className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
+                  onClick={handleNextClick}
+                >
+                  {activeIndex === 9 ? "Submit" : "Next"} <ArrowRight />
+                </button>
+              </div>
+              <p
+                className={`${isSelected ? "block" : "hidden"} text-sm text-red-600 mt-6`}
               >
-                {activeIndex === 9 ? "Submit" : "Next"} <ArrowRight />
-              </button>
+                Please select an option...
+              </p>
             </div>
-            <p
-              className={`${isSelected ? "block" : "hidden"} text-sm text-red-600 mt-6`}
-            >
-              Please select an option...
-            </p>
-          </div>
+          )}
         </div>
       </Container>
     </section>
