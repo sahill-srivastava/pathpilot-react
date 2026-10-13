@@ -7,14 +7,19 @@ import "swiper/css";
 import { quizData } from "../../mockdata/quizQuesAns";
 import { useRef, useState } from "react";
 import Loader from "../layout/Loader";
+import { useDispatch } from "react-redux";
+import { addResult } from "../../utils/quizResultSlice";
+import { careersData } from "../../mockdata/career";
 
-const QuizSegment = () => {
+const QuizSegment = ({showLoader, setShowLoader}) => {
   const [selected, setSelected] = useState(false); //true/false
   const [selectedOption, setSelectedOption] = useState(null); //A,B,C,D
   const [answer, setAnswer] = useState([]); //frontend, backend
   const [isSelected, setIsSelected] = useState(false); //for error
   const [activeIndex, setActiveIndex] = useState(0); //
-  const [showLoader, setShowLoader] = useState(false);
+ 
+  const dispatch = useDispatch();
+
   const swiperRef = useRef(null);
 
   const reset = () => {
@@ -22,23 +27,47 @@ const QuizSegment = () => {
     setSelectedOption(null);
   };
 
-  const showResult = (scores) => {
-    console.log("scoreboard :", scores);
+  const findResultDetails = (result) => {
+    const tempArray = [
+      { career: "frontend-developer", score: 1 },
+      { career: "ui-ux-designer", score: 1 },
+      { career: "data-scientist", score: 1 },
+    ];
 
-  }
+    const careerMatches = [];
+    result.forEach((item) => {
+      const cRes = careersData.find((c) => c.slug === item.career);
+      careerMatches.push(cRes);
+    });
+    dispatch(addResult(careerMatches));
+  };
+
+  // findResultDetails()
+
+  const showResult = (scoreboard) => {
+    const sorted = scoreboard.sort((a, b) => b.score - a.score);
+    const result = sorted.slice(0, 3);
+    findResultDetails(result);
+    return result;
+  };
 
   const handleOutput = () => {
-    console.log(answer);
-    const scoreboard = {};
+    const scoreboard = [];
 
     for (const item of answer) {
-      if (scoreboard[item]) {
-        scoreboard[item] += 1;
+      const existingCareer = scoreboard.find((entry) => entry.career === item);
+
+      if (existingCareer) {
+        existingCareer.score += 1;
       } else {
-        scoreboard[item] = 1;
+        scoreboard.push({
+          career: item,
+          score: 1,
+        });
       }
     }
-    showResult(scoreboard)
+
+    showResult(scoreboard);
   };
 
   const handleNextClick = () => {
