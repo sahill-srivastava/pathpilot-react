@@ -7,18 +7,22 @@ import "swiper/css";
 import { quizData } from "../../mockdata/quizQuesAns";
 import { useRef, useState } from "react";
 import Loader from "../layout/Loader";
-import { useDispatch } from "react-redux";
-import { addResult } from "../../utils/quizResultSlice";
 import { careersData } from "../../mockdata/career";
+import { Link } from "react-router-dom";
 
-const QuizSegment = ({showLoader, setShowLoader}) => {
+const QuizSegment = () => {
+  const [showLoader, setShowLoader] = useState(false);
   const [selected, setSelected] = useState(false); //true/false
   const [selectedOption, setSelectedOption] = useState(null); //A,B,C,D
   const [answer, setAnswer] = useState([]); //frontend, backend
   const [isSelected, setIsSelected] = useState(false); //for error
   const [activeIndex, setActiveIndex] = useState(0); //
- 
-  const dispatch = useDispatch();
+  const [isResultAval, setIsResultAval] = useState(false);
+  const [result, setResult] = useState([]); //final results
+
+  const allowedQuizSection = {
+    initial: 
+  }
 
   const swiperRef = useRef(null);
 
@@ -28,23 +32,24 @@ const QuizSegment = ({showLoader, setShowLoader}) => {
   };
 
   const findResultDetails = (result) => {
-    const tempArray = [
-      { career: "frontend-developer", score: 1 },
-      { career: "ui-ux-designer", score: 1 },
-      { career: "data-scientist", score: 1 },
-    ];
-
     const careerMatches = [];
+
     result.forEach((item) => {
       const cRes = careersData.find((c) => c.slug === item.career);
       careerMatches.push(cRes);
     });
-    dispatch(addResult(careerMatches));
+
+    console.log(careerMatches);
+    setResult(careerMatches);
+    setTimeout(() => {
+      setIsResultAval(true);
+      setShowLoader(false);
+    }, 2000);
   };
 
   // findResultDetails()
 
-  const showResult = (scoreboard) => {
+  const calculateResult = (scoreboard) => {
     const sorted = scoreboard.sort((a, b) => b.score - a.score);
     const result = sorted.slice(0, 3);
     findResultDetails(result);
@@ -67,7 +72,7 @@ const QuizSegment = ({showLoader, setShowLoader}) => {
       }
     }
 
-    showResult(scoreboard);
+    calculateResult(scoreboard);
   };
 
   const handleNextClick = () => {
@@ -96,62 +101,40 @@ const QuizSegment = ({showLoader, setShowLoader}) => {
                           "
       >
         <div className="w-[600px] bg-violet-700 rounded-2xl p-4">
-          {showLoader ? (
-            <Loader />
-          ) : (
-            <div>
-              <Swiper
-                modules={[Autoplay]}
-                slidesPerView={1}
-                spaceBetween={20}
-                loop={false}
-                allowTouchMove={false}
-                onSwiper={(swiper) => {
-                  swiperRef.current = swiper;
-                  setActiveIndex(swiper.activeIndex);
-                }}
-                onSlideChange={(swiper) => {
-                  setActiveIndex(swiper.activeIndex);
-                }}
-              >
-                {quizData.map((q) => {
-                  return (
-                    <SwiperSlide>
-                      <QuizQuestion
-                        data={q}
-                        selected={selected}
-                        setSelected={setSelected}
-                        selectedOption={selectedOption}
-                        setSelectedOption={setSelectedOption}
-                        setAnswer={setAnswer}
-                      />
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
-              <div className="w-full flex justify-between mt-6">
-                <button
-                  className={`back-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer ${activeIndex === 0 ? "opacity-0" : " opacity-100"} `}
-                  onClick={() => swiperRef.current.slidePrev()}
-                >
-                  <ArrowLeft /> Back
-                </button>
-                <button
-                  className="next-btn flex items-center gap-1 bg-white text-black px-2 py-1 rounded-sm cursor-pointer"
-                  onClick={handleNextClick}
-                >
-                  {activeIndex === 9 ? "Submit" : "Next"} <ArrowRight />
-                </button>
-              </div>
-              <p
-                className={`${isSelected ? "block" : "hidden"} text-sm text-red-600 mt-6`}
-              >
-                Please select an option...
-              </p>
-            </div>
-          )}
+         {/* show section */}
         </div>
       </Container>
+      {/* result segment */}
+      <div className={isResultAval ? "block" : "hidden"}>
+        <Container
+          className="
+                              h-full  py-10 my-10
+                                flex flex-col items-center justify-center gap-10
+                                "
+        >
+          <h2 className="text-5xl ">Your Results</h2>
+          <p className="text-lg">
+            Career paths that match your interests and strengths.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {result.map((r) => {
+              const { id, title, desc } = r;
+              return (
+                <div
+                  key={id}
+                  className="bg-zinc-900 min-h-[250px] inset-shadow-2xs inset-shadow-violet-800  px-4 py-4 rounded-xl flex flex-col items-center justify-center gap-5"
+                >
+                  <h4>{title}</h4>
+                  <p>{desc}</p>
+                  <Link className=" primary-btn w-full text-center mt-4 py-2 px-4 cursor-pointer">
+                    Explore Career
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </div>
     </section>
   );
 };
