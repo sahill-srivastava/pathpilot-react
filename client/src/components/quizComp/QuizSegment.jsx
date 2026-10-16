@@ -1,95 +1,21 @@
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import Container from "../layout/Container";
-import QuizQuestion from "./QuizQuestion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
-import { quizData } from "../../mockdata/quizQuesAns";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Loader from "../layout/Loader";
-import { careersData } from "../../mockdata/career";
 import { Link } from "react-router-dom";
+import QuizWindow from "./QuizWindow";
+import SuccessWindow from "./SuccessWindow";
 
 const QuizSegment = () => {
-  const [showLoader, setShowLoader] = useState(false);
-  const [selected, setSelected] = useState(false); //true/false
-  const [selectedOption, setSelectedOption] = useState(null); //A,B,C,D
-  const [answer, setAnswer] = useState([]); //frontend, backend
-  const [isSelected, setIsSelected] = useState(false); //for error
-  const [activeIndex, setActiveIndex] = useState(0); //
-  const [isResultAval, setIsResultAval] = useState(false);
+  const [allowedSection, setAllowedSection] = useState("initial")
   const [result, setResult] = useState([]); //final results
+  const [isResultAval, setIsResultAval] = useState(false);
 
   const allowedQuizSection = {
-    initial: 
-  }
-
-  const swiperRef = useRef(null);
-
-  const reset = () => {
-    setSelected(false);
-    setSelectedOption(null);
-  };
-
-  const findResultDetails = (result) => {
-    const careerMatches = [];
-
-    result.forEach((item) => {
-      const cRes = careersData.find((c) => c.slug === item.career);
-      careerMatches.push(cRes);
-    });
-
-    console.log(careerMatches);
-    setResult(careerMatches);
-    setTimeout(() => {
-      setIsResultAval(true);
-      setShowLoader(false);
-    }, 2000);
-  };
-
-  // findResultDetails()
-
-  const calculateResult = (scoreboard) => {
-    const sorted = scoreboard.sort((a, b) => b.score - a.score);
-    const result = sorted.slice(0, 3);
-    findResultDetails(result);
-    return result;
-  };
-
-  const handleOutput = () => {
-    const scoreboard = [];
-
-    for (const item of answer) {
-      const existingCareer = scoreboard.find((entry) => entry.career === item);
-
-      if (existingCareer) {
-        existingCareer.score += 1;
-      } else {
-        scoreboard.push({
-          career: item,
-          score: 1,
-        });
-      }
-    }
-
-    calculateResult(scoreboard);
-  };
-
-  const handleNextClick = () => {
-    if (!selected) {
-      setIsSelected(true);
-      setTimeout(() => {
-        setIsSelected(false);
-      }, 2500);
-      return;
-    }
-    swiperRef.current.slideNext();
-    reset(); //reset values
-    if (activeIndex === 9) {
-      setShowLoader(true);
-      handleOutput();
-    }
-    // console.log(answer);
+    initial: (
+      <QuizWindow setAllowedSection={setAllowedSection} setResult={setResult} setIsResultAval={setIsResultAval} />
+    ),
+    load: <Loader />,
+    successWindow: <SuccessWindow />,
   };
 
   return (
@@ -101,7 +27,7 @@ const QuizSegment = () => {
                           "
       >
         <div className="w-[600px] bg-violet-700 rounded-2xl p-4">
-         {/* show section */}
+          {allowedQuizSection[allowedSection]}
         </div>
       </Container>
       {/* result segment */}
