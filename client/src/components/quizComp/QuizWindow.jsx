@@ -8,7 +8,6 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { careersData } from "../../mockdata/career";
 
 const QuizWindow = ({setAllowedSection, setResult, setIsResultAval}) => {
-  // const [showLoader, setShowLoader] = useState(false);
   const [selected, setSelected] = useState(false); //true/false
   const [selectedOption, setSelectedOption] = useState(null); //A,B,C,D
   const [answer, setAnswer] = useState([]); //frontend, backend
@@ -30,11 +29,9 @@ const QuizWindow = ({setAllowedSection, setResult, setIsResultAval}) => {
       careerMatches.push(cRes);
     });
 
-    console.log(careerMatches);
     setResult(careerMatches);
     setTimeout(() => {
       setIsResultAval(true);
-      // setShowLoader(false);
       setAllowedSection("successWindow")
     }, 2000);
   };
@@ -82,7 +79,6 @@ const QuizWindow = ({setAllowedSection, setResult, setIsResultAval}) => {
       setAllowedSection("load")
       handleOutput();
     }
-    // console.log(answer);
   };
 
 

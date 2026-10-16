@@ -48,7 +48,7 @@ const QuizSegment = () => {
               return (
                 <div
                   key={id}
-                  className="bg-zinc-900 min-h-[250px] inset-shadow-2xs inset-shadow-violet-800  px-4 py-4 rounded-xl flex flex-col items-center justify-center gap-5"
+                  className="bg-zinc-900 min-h-[250px] inset-shadow-2xs inset-shadow-violet-800  px-5 py-4 rounded-xl flex flex-col items-center justify-center gap-5"
                 >
                   <h4>{title}</h4>
                   <p>{desc}</p>
