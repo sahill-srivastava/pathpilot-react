@@ -22,7 +22,7 @@ const SuccessWindow = (props) => {
         <Trophy />
       </div>
       <h2 className="mt-2 text-3xl">Congratulations!</h2>
-      <p className="mt-2 text-lg">
+      <p className="mt-2 text-lg text-center">
         You've completed your career discovery quiz.
       </p>
       <button

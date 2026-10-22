@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 
-const HeroSectionQuiz = () => {
+const HeroSectionQuiz = ({ quizRef }) => {
   return (
     <section
       className={`hero_bg_color light:hero_bg_color_light md:h-[600px] `}
@@ -28,17 +28,25 @@ const HeroSectionQuiz = () => {
             discover career paths that align with you.
           </p>
           <div className="mt-5 md:mt-10 flex gap-6">
-            <Link to="/about" className="primary-btn px-3 py-2.5">
+            <div
+              onClick={() =>
+                quizRef.current?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                })
+              }
+              className="primary-btn px-3 py-2.5"
+            >
               Start Quiz
-            </Link>
+            </div>
           </div>
           <div className="mt-10">
             <ul className="flex flex-wrap flex-col md:flex-row gap-2.5 md:text-lg">
-                <li className="shrink-0">10 Questions</li>
-                <li className="shrink-0">•</li>
-                <li className="shrink-0">~3 Minutes</li>
-                <li className="shrink-0">•</li>
-                <li className="shrink-0">Personalized Results</li>
+              <li className="shrink-0">Discover</li>
+              <li className="shrink-0">•</li>
+              <li className="shrink-0">Explore</li>
+              <li className="shrink-0">•</li>
+              <li className="shrink-0">Find Your Path</li>
             </ul>
           </div>
         </div>

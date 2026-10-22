@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import QuizWindow from "./QuizWindow";
 import SuccessWindow from "./SuccessWindow";
 
-const QuizSegment = () => {
+const QuizSegment = ({quizRef}) => {
   const [allowedSection, setAllowedSection] = useState("initial");
   const [result, setResult] = useState([]); //final results
   const [isResultAval, setIsResultAval] = useState(false);
   const resultRef = useRef(null);
 
   const handleScrollResult = () => {
-    resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   const quizProps = {
@@ -32,14 +32,14 @@ const QuizSegment = () => {
   };
 
   return (
-    <section>
+    <section ref={quizRef}>
       <Container
         className="
                         h-full  py-10 my-10
                           flex flex-col items-center justify-center gap-2.5
                           "
       >
-        <div className="w-[600px] bg-violet-700 rounded-2xl p-4">
+        <div className="w-full md:w-[600px] bg-violet-700 rounded-2xl p-4">
           {allowedQuizSection[allowedSection]}
         </div>
       </Container>
@@ -52,7 +52,7 @@ const QuizSegment = () => {
                                 "
         >
           <h2 className="text-5xl ">Your Results</h2>
-          <p className="text-lg">
+          <p className="text-lg text-center">
             Career paths that match your interests and strengths.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
