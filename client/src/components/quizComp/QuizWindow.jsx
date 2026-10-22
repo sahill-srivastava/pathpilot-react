@@ -7,7 +7,14 @@ import { quizData } from "../../mockdata/quizQuesAns";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { careersData } from "../../mockdata/career";
 
-const QuizWindow = ({setAllowedSection, setResult, setIsResultAval}) => {
+const QuizWindow = (props) => {
+  const {
+    setAllowedSection,
+    setResult,
+    setIsResultAval,
+    handleScrollResult
+  } = props;
+
   const [selected, setSelected] = useState(false); //true/false
   const [selectedOption, setSelectedOption] = useState(null); //A,B,C,D
   const [answer, setAnswer] = useState([]); //frontend, backend
@@ -32,8 +39,13 @@ const QuizWindow = ({setAllowedSection, setResult, setIsResultAval}) => {
     setResult(careerMatches);
     setTimeout(() => {
       setIsResultAval(true);
-      setAllowedSection("successWindow")
-    }, 2000);
+      setAllowedSection("successWindow");
+    }, 1500);
+    setTimeout(() => {
+      handleScrollResult()
+    }, 2500);
+
+   
   };
 
   // findResultDetails()
@@ -75,12 +87,10 @@ const QuizWindow = ({setAllowedSection, setResult, setIsResultAval}) => {
     swiperRef.current.slideNext();
     reset(); //reset values
     if (activeIndex === 9) {
-      // setShowLoader(true);
-      setAllowedSection("load")
+      setAllowedSection("load");
       handleOutput();
     }
   };
-
 
   return (
     <div>

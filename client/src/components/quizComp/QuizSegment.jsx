@@ -1,21 +1,34 @@
 import Container from "../layout/Container";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Loader from "../layout/Loader";
 import { Link } from "react-router-dom";
 import QuizWindow from "./QuizWindow";
 import SuccessWindow from "./SuccessWindow";
 
 const QuizSegment = () => {
-  const [allowedSection, setAllowedSection] = useState("initial")
+  const [allowedSection, setAllowedSection] = useState("initial");
   const [result, setResult] = useState([]); //final results
   const [isResultAval, setIsResultAval] = useState(false);
+  const resultRef = useRef(null);
+
+  const handleScrollResult = () => {
+    resultRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const quizProps = {
+    allowedSection,
+    setAllowedSection,
+    result,
+    setResult,
+    isResultAval,
+    setIsResultAval,
+    handleScrollResult
+  };
 
   const allowedQuizSection = {
-    initial: (
-      <QuizWindow setAllowedSection={setAllowedSection} setResult={setResult} setIsResultAval={setIsResultAval} />
-    ),
+    initial: <QuizWindow {...quizProps} />,
     load: <Loader />,
-    successWindow: <SuccessWindow />,
+    successWindow: <SuccessWindow {...quizProps} />,
   };
 
   return (
@@ -31,7 +44,7 @@ const QuizSegment = () => {
         </div>
       </Container>
       {/* result segment */}
-      <div className={isResultAval ? "block" : "hidden"}>
+      <div ref={resultRef} className={isResultAval ? "block" : "hidden"}>
         <Container
           className="
                               h-full  py-10 my-10
