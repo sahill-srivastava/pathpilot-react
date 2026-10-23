@@ -68,7 +68,7 @@ export default function Navbar() {
             <NavLink isOpenState={{ isOpen, setIsOpen }} />
 
             <div className="flex items-center gap-4 p-4">
-              <Link
+              {/* <Link
                 to="/bookmarks"
                 onClick={() => {
                   setIsOpen(false);
@@ -83,7 +83,7 @@ export default function Navbar() {
                 }}
               >
                 <TrendingUp size={20} />
-              </Link>
+              </Link> */}
               <ThemeToggle />
             </div>
           </div>
