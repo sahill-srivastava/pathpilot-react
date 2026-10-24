@@ -35,7 +35,7 @@ const InnerHeroSection = ({ data }) => {
             {data.buttons.map((button) => (
               <Link
                 to={button.buttonUrl}
-                className={`${button.class} px-3 py-2.5`}
+                className={`${button.variant} px-3 py-2.5`}
                 key={button.id}
               >
                 {button.buttonText}

@@ -7,6 +7,7 @@ import heroBannerLight from "../../assets/hero-banner-light.png";
 // import useZoomInStagger from "../../hooks/useZoomInStagger";
 import useFadeRightStagger from "../../hooks/useFadeRightStagger";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   const theme = useSelector(store => store.config.defaultTheme)
@@ -39,10 +40,8 @@ export default function HeroSection() {
             future.
           </p>
           <div className="mt-10 flex gap-6">
-            <button className="primary-btn px-3 py-2.5">Explore Careers</button>
-            <button className="secondary-btn px-3 py-2.5 light:white">
-              Take Career Quiz
-            </button>
+            <Link to="/careers" className="primary-btn px-3 py-2.5">Explore Careers</Link>
+            <Link to="/careers" className="secondary-btn px-3 py-2.5 light:white">Take Career Quiz</Link>
           </div>
         </div>
 

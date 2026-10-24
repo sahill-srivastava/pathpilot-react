@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import Container from "../layout/Container";
-import { exploreCareerPath } from "../../mockdata/home";
 import { MoveRight } from "lucide-react";
+import { careersData } from "../../mockdata/career";
+import { Link } from "react-router-dom";
 
 const ExploreCareerPath = () => {
   const theme = useSelector((store) => store.config.defaultTheme);
@@ -31,7 +32,7 @@ const ExploreCareerPath = () => {
                    md:grid-cols-3
                    "
         >
-          {exploreCareerPath.map((card) => (
+          {careersData.map((card) => (
             <div key={card.id} className={exploreCareerPathClass}>
               <div className="flex flex-col gap-3 ">
                 <h3 className="text-xl mt-10 mb-5 font-medium light:text-white">
@@ -43,16 +44,22 @@ const ExploreCareerPath = () => {
                 <p className="light:text-white">Duration: {card.duration}</p>
                 <p className="light:text-white">{card.desc}</p>
               </div>
-              <button className="hover:text-black bg-transparent hover:bg-white border rounded-md text-[14px] cursor-pointer light:text-white py-2 mt-5">
+              <Link
+                to={`/careers/${card.slug}`}
+                className="hover:text-black bg-transparent text-center hover:bg-white border rounded-md text-[14px] cursor-pointer light:text-white py-2 mt-5"
+              >
                 {card.buttonText}
-              </button>
+              </Link>
             </div>
           ))}
         </div>
 
-        <button className="secondary-btn mt-20 py-2.5 px-5 flex gap-2.5 items-center">
+        <Link
+          to="/careers"
+          className="secondary-btn mt-20 py-2.5 px-5 flex gap-2.5 items-center"
+        >
           View More <MoveRight />
-        </button>
+        </Link>
       </Container>
     </section>
   );

@@ -32,7 +32,7 @@ const CareerRoadmap = ({ data }) => {
   };
 
   return (
-    <section>
+    <section id="career-section">
       <Container
         className="
                         my-15  min-h-fit 

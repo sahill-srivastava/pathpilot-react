@@ -76,7 +76,7 @@ export const learningRoadmapData = [
         title: "Frontend Development",
         tools: ["HTML", "CSS", "JavaScript", "React", "Git", "Projects"],
         buttonText: "View Roadmap",
-        buttonUrl: "#",
+        buttonUrl: "/roadmaps/frontend-developer",
         bgColor: "bg-zinc-900"
     },
     {
@@ -84,15 +84,22 @@ export const learningRoadmapData = [
         title: "Backend Development",
         tools: ["Node.js", "Express.js", "REST APIs", "MongoDB", "Authentication", "Deployment"],
         buttonText: "View Roadmap",
-        buttonUrl: "#",
+        buttonUrl: "/roadmaps/backend-developer",
         bgColor: "bg-violet-800"
     },
     {
         id: 3,
-        title: "MERN Stack Development",
-        tools: ["React", "Node.js", "Express", "MongoDB", "JWT", "Full Stack Projects"],
+        title: "Game Developer",
+        tools: [
+            "Game Programming",
+            "C#",
+            "C++",
+            "3D Mathematics",
+            "Game Design",
+            "Debugging"
+        ],
         buttonText: "View Roadmap",
-        buttonUrl: "#",
+        buttonUrl: "/roadmaps/game-developer",
         bgColor: "bg-zinc-900"
     },
     {
@@ -100,7 +107,7 @@ export const learningRoadmapData = [
         title: "Java Full Stack",
         tools: ["Java", "Spring Boot", "REST APIs", "MySQL", "React", "Deployment"],
         buttonText: "View Roadmap",
-        buttonUrl: "#",
+        buttonUrl: "/roadmaps/java-developer",
         bgColor: "bg-violet-800"
     },
     {
@@ -108,7 +115,7 @@ export const learningRoadmapData = [
         title: "Python Full Stack",
         tools: ["Python", "Django", "REST APIs", "PostgreSQL", "React", "Projects"],
         buttonText: "View Roadmap",
-        buttonUrl: "#",
+        buttonUrl: "/roadmaps/python-developer",
         bgColor: "bg-zinc-900"
     },
     {
@@ -116,7 +123,7 @@ export const learningRoadmapData = [
         title: "UI/UX Design",
         tools: ["Design Principles", "Wireframes", "Figma", "Prototypes", "Design Systems", "Portfolio"],
         buttonText: "View Roadmap",
-        buttonUrl: "#",
+        buttonUrl: "/roadmaps/ui-ux-designer",
         bgColor: "bg-violet-800"
     }
 ]

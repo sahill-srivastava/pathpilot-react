@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 import careerIllustration from "../../assets/career-illustration.png";
 
-const InnerCareerHeroSection = ({ data }) => {
+const InnerCareerHeroSection = ({ data, slug }) => {
   const { eyebrow, title, subtitle, description, primaryCTA, secondaryCTA } =
     data;
   return (
@@ -26,8 +26,8 @@ const InnerCareerHeroSection = ({ data }) => {
           <p>{subtitle}</p>
           <p>{description}</p>
           <div className="mt-5 md:mt-10 flex gap-6">
-            <Link className="primary-btn px-3 py-2.5">{primaryCTA}</Link>
-            <Link className="secondary-btn px-3 py-2.5">{secondaryCTA}</Link>
+            <a href="#career-section" className="primary-btn px-3 py-2.5">{primaryCTA}</a>
+            <Link to={`/roadmaps/${slug}`} className="secondary-btn px-3 py-2.5">{secondaryCTA}</Link>
           </div>
         </div>
         <div className="flex flex-col gap-2.5 items-start">

@@ -3,9 +3,16 @@ import "swiper/css";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 import Container from "../layout/Container";
-import { ChevronLeft, ChevronRight, MoveRight, MoveUpRight, Tally1 } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  MoveRight,
+  MoveUpRight,
+  Tally1,
+} from "lucide-react";
 import { learningRoadmapData } from "../../mockdata/home";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const StructuredLearningRoadmaps = () => {
   return (
@@ -28,7 +35,7 @@ const StructuredLearningRoadmaps = () => {
               <ChevronLeft size={24} className=" hover:text-violet-500" />
             </button>
             <button className="custom-next cursor-pointer p-2">
-              <ChevronRight size={24}  className=" hover:text-violet-500" />
+              <ChevronRight size={24} className=" hover:text-violet-500" />
             </button>
           </div>
 
@@ -46,23 +53,23 @@ const StructuredLearningRoadmaps = () => {
             spaceBetween={30}
             slidesPerView={1}
             slidesPerGroup={1}
-            breakpoints={
-              {
-                390: {
-                  slidesPerView: 3,
-                  slidesPerGroup: 2
-                }
-              }
-            }
+            breakpoints={{
+              390: {
+                slidesPerView: 3,
+                slidesPerGroup: 2,
+              },
+            }}
             className="h-fit"
           >
             {learningRoadmapData.map((card) => (
               <SwiperSlide
-              className={`${card.bgColor} group  px-5 py-8 rounded-2xl`}
+                className={`${card.bgColor} group  px-5 py-8 rounded-2xl`}
                 key={card.id}
               >
                 <div className="w-full flex flex-col items-start gap-5">
-                  <h3 className="text-xl mb-2.5 font-medium light:text-white">{card.title}</h3>
+                  <h3 className="text-xl mb-2.5 font-medium light:text-white">
+                    {card.title}
+                  </h3>
                   <ul className="flex flex-col gap-0 justify-start light:text-white">
                     {card.tools.map((tool, index) => (
                       <React.Fragment key={index}>
@@ -80,12 +87,12 @@ const StructuredLearningRoadmaps = () => {
                   </ul>
                   <a href={card.buttonUrl}>
                     <button className="flex gap-2 items-center bg-white text-black rounded px-5 py-2.5 mt-5 cursor-pointer group/button">
-                    {card.buttonText}
-                    <MoveUpRight
-                      size={16}
-                      className="transition-transform duration-100 group-hover/button:translate-x-1 group-hover/button:-translate-y-1"
-                    />
-                  </button>
+                      {card.buttonText}
+                      <MoveUpRight
+                        size={16}
+                        className="transition-transform duration-100 group-hover/button:translate-x-1 group-hover/button:-translate-y-1"
+                      />
+                    </button>
                   </a>
                 </div>
               </SwiperSlide>
@@ -93,7 +100,12 @@ const StructuredLearningRoadmaps = () => {
           </Swiper>
         </div>
 
-         <button className="secondary-btn mt-20 py-2.5 px-5 flex gap-2.5 items-center">View More <MoveRight /></button>
+        <Link
+          to="/roadmaps"
+          className="secondary-btn mt-20 py-2.5 px-5 flex gap-2.5 items-center"
+        >
+          View More <MoveRight />
+        </Link>
       </Container>
     </section>
   );

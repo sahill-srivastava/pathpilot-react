@@ -11,10 +11,10 @@ const CareerDetail = () => {
   const role = careersData.find((item) => item.slug === slug);
   return (
     <>
-      <InnerCareerHeroSection data={role.hero} />
+      <InnerCareerHeroSection data={role.hero} slug={slug} />
       <FactsBox data={role} />
       <CareerRoadmap data={role} />
-      <CareerCta data={role} />
+      <CareerCta data={role} slug={slug}  />
     </>
   );
 };

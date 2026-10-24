@@ -14,13 +14,13 @@ export const aboutHeroSectionData = {
             id: 1,
             buttonText: "Explore Careers",
             buttonUrl: "/careers",
-            class: "primary-btn"
+            variant: "primary-btn"
         },
         {
             id: 2,
             buttonText: "Take Career Quiz",
             buttonUrl: "/quiz",
-            class: "secondary-btn"
+            variant: "secondary-btn"
         }
     ]
 }

@@ -12,8 +12,8 @@ export const careerHeroSectionData = {
     buttons: [
         {
             id: 1,
-            buttonText: "Explore Careers",
-            buttonUrl: "#careers",
+            buttonText: "Explore Roadmaps",
+            buttonUrl: "/roadmaps",
             variant: "primary-btn"
         },
         {

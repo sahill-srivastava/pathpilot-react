@@ -14,7 +14,7 @@ const RoadmapDetail = () => {
   const role = roadmapsData.find((item) => item.slug === slug);
   return (
     <>
-      <HeroSectionDetail data={role} />
+      <HeroSectionDetail data={role} slug={slug} />
       <FactsBoxRoadmap data={role} />
       <OverviewSegment data={role} />
       <PhasesSegment data={role} />
